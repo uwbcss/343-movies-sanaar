@@ -29,9 +29,9 @@ void Read::readMovies(const std::string &filename, Store *store) {
 
     if (type == 'F') {
       // F, stock, director, title, year
-      std::string stockStr
-      std::string director
-      std::string title
+      std::string stockStr;
+      std::string director;
+      std::string title;
       std::string yearStr;
       getline(iss, stockStr, ',');
       getline(iss, director, ',');
