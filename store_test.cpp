@@ -13,52 +13,52 @@
 
 #include "command.h"
 #include "commandfactory.h"
-#include "store.h"
 #include "read.h"
+#include "store.h"
 
 using namespace std;
 
 void testStore1() {
-    cout << "Start testStore1" << endl;
-    string cfile = "testcommands-1.txt";
+  cout << "Start testStore1" << endl;
+  string cfile = "testcommands-1.txt";
 
-    ifstream fs(cfile);
-    assert(fs.is_open());
-    stringstream out;
-    char commandType;
-    string discard;
-    while (fs >> commandType) {
-        out << commandType;
-        getline(fs, discard);
-    }
-    fs.close();
-    string result = "IHHBRIBBIH";
-    assert(out.str() == result);
-    cout << "End testStore1" << endl;
+  ifstream fs(cfile);
+  assert(fs.is_open());
+  stringstream out;
+  char commandType;
+  string discard;
+  while (fs >> commandType) {
+    out << commandType;
+    getline(fs, discard);
+  }
+  fs.close();
+  string result = "IHHBRIBBIH";
+  assert(out.str() == result);
+  cout << "End testStore1" << endl;
 }
 
 void testStore2() {
-    cout << "Start testStore2" << endl;
-    cout << "End testStore2" << endl;
+  cout << "Start testStore2" << endl;
+  cout << "End testStore2" << endl;
 }
 
 void testStoreFinal() {
-    cout << "=====================================" << endl;
-    cout << "Start testStoreFinal" << endl;
+  cout << "=====================================" << endl;
+  cout << "Start testStoreFinal" << endl;
 
-    Store store;
-    CommandFactory factory(&store);
+  Store store;
+  CommandFactory factory(&store);
 
-    Read::readCustomers("data4customers.txt", &store);
-    Read::readMovies("data4movies.txt", &store);
-    Read::readCommands("data4commands.txt", &store, factory);
+  Read::readCustomers("data4customers.txt", &store);
+  Read::readMovies("data4movies.txt", &store);
+  Read::readCommands("data4commands.txt", &store, factory);
 
-    cout << "End testStoreFinal" << endl;
-    cout << "=====================================" << endl;
+  cout << "End testStoreFinal" << endl;
+  cout << "=====================================" << endl;
 }
 
 void testAll() {
-    testStore1();
-    testStore2();
-    testStoreFinal();
+  testStore1();
+  testStore2();
+  testStoreFinal();
 }

@@ -6,17 +6,17 @@
 
 class Customer {
 public:
-    Customer(int id, const std::string& name);
-    void addHistory(const std::string& record);
-    void printHistory() const;
+  Customer(int id, const std::string &name);
+  void addHistory(const std::string &record);
+  void printHistory() const;
 
-    int getId() const;
-    std::string getName() const;
+  int getId() const;
+  std::string getName() const;
 
 private:
-    int id;
-    std::string name;
-    std::vector<std::string> history;
+  int id;
+  std::string name;
+  std::vector<std::string> history;
 };
 
 #endif

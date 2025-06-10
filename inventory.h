@@ -5,8 +5,8 @@
 
 class Inventory : public Command {
 public:
-    Inventory() = default;
-    void execute(Store* store) override;
+  Inventory() = default;
+  void execute(Store *store) override;
 };
 
 #endif

@@ -7,11 +7,11 @@
 
 class CommandFactory {
 public:
-    explicit CommandFactory(Store *store);
-    Command *createCommand(const std::string &commandLine);
+  explicit CommandFactory(Store *store);
+  Command *createCommand(const std::string &commandLine);
 
 private:
-    Store *store;
+  Store *store;
 };
 
 #endif // COMMANDFACTORY_H

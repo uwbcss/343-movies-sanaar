@@ -1,393 +1,120 @@
-Tue Jun 10 06:11:42 UTC 2025
+Tue Jun 10 06:55:43 UTC 2025
 Linux LinuxMachine 5.15.167.4-microsoft-standard-WSL2 #1 SMP Tue Nov 5 00:21:55 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux
 uid=1000(cssuwbstudent) gid=1000(cssuwbstudent) groups=1000(cssuwbstudent),10(wheel)
 =====================================================
 1. If the section below is empty, the program compiles 
    without warnings with -Wall -Wextra flags
 =====================================================
+read.cpp: In function ‘void Read::readMovies(const string&, Store*)’:
+read.cpp:33:7: error: expected initializer before ‘std’
+   33 |       std::string director
+      |       ^~~
+read.cpp:36:20: error: ‘stockStr’ was not declared in this scope
+   36 |       getline(iss, stockStr, ',');
+      |                    ^~~~~~~~
+read.cpp:37:20: error: ‘director’ was not declared in this scope
+   37 |       getline(iss, director, ',');
+      |                    ^~~~~~~~
+read.cpp:38:20: error: ‘title’ was not declared in this scope
+   38 |       getline(iss, title, ',');
+      |                    ^~~~~
+read.cpp:39:20: error: ‘yearStr’ was not declared in this scope
+   39 |       getline(iss, yearStr);
+      |                    ^~~~~~~
 =====================================================
 2. If the section below is empty or has the expected output 
     the program puns and produces correct output
 =====================================================
-Start testStore1
-End testStore1
-Start testStore2
-End testStore2
-=====================================
-Start testStoreFinal
-
---- Store Inventory ---
-Type: C, Title:  Michael Curtiz, Director:  10, Year: 32596, Stock: 1148952149
-Type: C, Title:  Michael Curtiz, Director:  10, Year: 32596, Stock: 1148952149
-Type: C, Title:  Victor Fleming, Director:  10, Year: 32596, Stock: 1148952149
-Type: F, Title:  10, Director:  Nora Ephron, Year: 0, Stock: 1148952149
-Type: D, Title:  Barry Levinson, Director:  10, Year: 0, Stock: 1148952149
-Type: D, Title:  Barry Levinson, Director:  10, Year: 0, Stock: 1148952149
-Type: D, Title:  Gus Van Sant, Director:  10, Year: 0, Stock: 1148952149
-Type: F, Title:  10, Director:  Woody Allen, Year: 0, Stock: 1148952149
-Type: F, Title:  10, Director:  Rob Reiner, Year: 0, Stock: 1148952149
-Type: D, Title:  Phillippe De Broca, Director:  10, Year: 0, Stock: 1148952149
-Type: D, Title:  Steven Spielberg, Director:  10, Year: 0, Stock: 1148952149
-Type: F, Title:  10, Director:  Gore Verbinski, Year: 0, Stock: 1148952149
-Type: F, Title:  10, Director:  Different Years, Year: 0, Stock: 1148952149
-Type: F, Title:  10, Director:  Joel Coen, Year: 0, Stock: 1148952149
-Type: D, Title:  Jonathan Demme, Director:  10, Year: 0, Stock: 1148952149
-Type: D, Title:  Clint Eastwood, Director:  10, Year: 0, Stock: 1148952149
-Type: C, Title:  Hal Ashby, Director:  10, Year: 0, Stock: 1148952149
-Type: C, Title:  George Cukor, Director:  10, Year: 0, Stock: 1148952149
-Type: C, Title:  George Cukor, Director:  10, Year: 0, Stock: 1148952149
-Type: C, Title:  Victor Fleming, Director:  10, Year: 0, Stock: 1148952149
-Type: C, Title:  Victor Fleming, Director:  10, Year: 0, Stock: 1148952149
-Type: C, Title:  George Cukor, Director:  10, Year: 0, Stock: 1148952149
-Type: C, Title:  George Cukor, Director:  10, Year: 0, Stock: 1148952149
-Type: C, Title:  John Huston, Director:  10, Year: 0, Stock: 1148952149
-Type: C, Title:  Frank Capra, Director:  10, Year: 0, Stock: 1148952149
-Type: C, Title:  Frank Capra, Director:  10, Year: 0, Stock: 1148952149
-Type: C, Title:  Stanley Kubrick, Director:  10, Year: 0, Stock: 1148952149
-Type: F, Title:  10, Director:  John Landis, Year: 0, Stock: 1148952149
-Type: D, Title:  Nancy Savoca, Director:  10, Year: 0, Stock: 1148952149
-Type: F, Title:  10, Director:  Nora Ephron, Year: 0, Stock: 1148952149
-
---- History for Customer 1000 ---
-
---- History for Customer 5000 ---
-
---- History for Customer 8000 ---
-Borrow failed: invalid movie, customer ID, or out of stock.
-Borrow command failed for customer 8000
-Drama movie line incorrectly formatted: B 1000 D D Barry Levinson, Good Morning Vietnam,
-Borrow failed: invalid movie, customer ID, or out of stock.
-Borrow command failed for customer 1000
-Borrow failed: invalid movie, customer ID, or out of stock.
-Borrow command failed for customer 2000
-Borrow failed: invalid movie, customer ID, or out of stock.
-Borrow command failed for customer 4444
-Borrow failed: invalid movie, customer ID, or out of stock.
-Borrow command failed for customer 5000
-Return failed: invalid movie or customer ID.
-Return command failed for customer 5000
-Borrow failed: invalid movie, customer ID, or out of stock.
-Borrow command failed for customer 8888
-Borrow failed: invalid movie, customer ID, or out of stock.
-Borrow command failed for customer 1111
-Failed to create movie: B 1111 D Z 2 1971 Malcolm McDowell
-Borrow failed: invalid movie, customer ID, or out of stock.
-Borrow command failed for customer 5000
-Return failed: invalid movie or customer ID.
-Return command failed for customer 5000
-Drama movie line incorrectly formatted: B 1000 D D Gus Van Sant, Good Will Hunting,
-Drama movie line incorrectly formatted: B 2000 D D Phillippe De Broca, King of Hearts,
-Return failed: invalid movie or customer ID.
-Return command failed for customer 4444
-Borrow failed: invalid movie, customer ID, or out of stock.
-Borrow command failed for customer 1000
-Borrow failed: invalid movie, customer ID, or out of stock.
-Borrow command failed for customer 1111
-Borrow failed: invalid movie, customer ID, or out of stock.
-Borrow command failed for customer 1000
-Borrow failed: invalid movie, customer ID, or out of stock.
-Borrow command failed for customer 8888
-Drama movie line incorrectly formatted: B 8888 D D Jonathan Demme, Silence of the Lambs,
-Return failed: invalid movie or customer ID.
-Return command failed for customer 8000
-Borrow failed: invalid movie, customer ID, or out of stock.
-Borrow command failed for customer 9999
-Borrow failed: invalid movie, customer ID, or out of stock.
-Borrow command failed for customer 8000
-Borrow failed: invalid movie, customer ID, or out of stock.
-Borrow command failed for customer 1111
-Borrow failed: invalid movie, customer ID, or out of stock.
-Borrow command failed for customer 8000
-Unknown command type or movie type: X
-Borrow failed: invalid movie, customer ID, or out of stock.
-Borrow command failed for customer 1111
-Borrow failed: invalid movie, customer ID, or out of stock.
-Borrow command failed for customer 5000
-Drama movie line incorrectly formatted: B 8888 D D Nancy Savoca, Dogfight,
-Drama movie line incorrectly formatted: B 7777 D D Steven Spielberg, Schindler's List,
-Return failed: invalid movie or customer ID.
-Return command failed for customer 5000
-Unknown command type or movie type: Z 1000 D C 10 1941 Humphrey Bogart
-Borrow failed: invalid movie, customer ID, or out of stock.
-Borrow command failed for customer 5000
-Borrow failed: invalid movie, customer ID, or out of stock.
-Borrow command failed for customer 8000
-Borrow failed: invalid movie, customer ID, or out of stock.
-Borrow command failed for customer 8888
-Borrow failed: invalid movie, customer ID, or out of stock.
-Borrow command failed for customer 7777
-Borrow failed: invalid movie, customer ID, or out of stock.
-Borrow command failed for customer 2000
-Drama movie line incorrectly formatted: B 2000 D D Nancy Savoca, Dogfight,
-Drama movie line incorrectly formatted: B 9000 D D Clint Eastwood, Unforgiven,
-Borrow failed: invalid movie, customer ID, or out of stock.
-Borrow command failed for customer 9000
-Borrow failed: invalid movie, customer ID, or out of stock.
-Borrow command failed for customer 1234
-Borrow failed: invalid movie, customer ID, or out of stock.
-Borrow command failed for customer 1000
-Borrow failed: invalid movie, customer ID, or out of stock.
-Borrow command failed for customer 1000
-Borrow failed: invalid movie, customer ID, or out of stock.
-Borrow command failed for customer 2000
-Borrow failed: invalid movie, customer ID, or out of stock.
-Borrow command failed for customer 9000
-Borrow failed: invalid movie, customer ID, or out of stock.
-Borrow command failed for customer 9000
-Borrow failed: invalid movie, customer ID, or out of stock.
-Borrow command failed for customer 3333
-Borrow failed: invalid movie, customer ID, or out of stock.
-Borrow command failed for customer 7777
-Drama movie line incorrectly formatted: B 1000 D D Steven Spielberg, Bogus Title,
-
---- Store Inventory ---
-Type: C, Title:  Michael Curtiz, Director:  10, Year: 32596, Stock: 1148952149
-Type: C, Title:  Michael Curtiz, Director:  10, Year: 32596, Stock: 1148952149
-Type: C, Title:  Victor Fleming, Director:  10, Year: 32596, Stock: 1148952149
-Type: F, Title:  10, Director:  Nora Ephron, Year: 0, Stock: 1148952149
-Type: D, Title:  Barry Levinson, Director:  10, Year: 0, Stock: 1148952149
-Type: D, Title:  Barry Levinson, Director:  10, Year: 0, Stock: 1148952149
-Type: D, Title:  Gus Van Sant, Director:  10, Year: 0, Stock: 1148952149
-Type: F, Title:  10, Director:  Woody Allen, Year: 0, Stock: 1148952149
-Type: F, Title:  10, Director:  Rob Reiner, Year: 0, Stock: 1148952149
-Type: D, Title:  Phillippe De Broca, Director:  10, Year: 0, Stock: 1148952149
-Type: D, Title:  Steven Spielberg, Director:  10, Year: 0, Stock: 1148952149
-Type: F, Title:  10, Director:  Gore Verbinski, Year: 0, Stock: 1148952149
-Type: F, Title:  10, Director:  Different Years, Year: 0, Stock: 1148952149
-Type: F, Title:  10, Director:  Joel Coen, Year: 0, Stock: 1148952149
-Type: D, Title:  Jonathan Demme, Director:  10, Year: 0, Stock: 1148952149
-Type: D, Title:  Clint Eastwood, Director:  10, Year: 0, Stock: 1148952149
-Type: C, Title:  Hal Ashby, Director:  10, Year: 0, Stock: 1148952149
-Type: C, Title:  George Cukor, Director:  10, Year: 0, Stock: 1148952149
-Type: C, Title:  George Cukor, Director:  10, Year: 0, Stock: 1148952149
-Type: C, Title:  Victor Fleming, Director:  10, Year: 0, Stock: 1148952149
-Type: C, Title:  Victor Fleming, Director:  10, Year: 0, Stock: 1148952149
-Type: C, Title:  George Cukor, Director:  10, Year: 0, Stock: 1148952149
-Type: C, Title:  George Cukor, Director:  10, Year: 0, Stock: 1148952149
-Type: C, Title:  John Huston, Director:  10, Year: 0, Stock: 1148952149
-Type: C, Title:  Frank Capra, Director:  10, Year: 0, Stock: 1148952149
-Type: C, Title:  Frank Capra, Director:  10, Year: 0, Stock: 1148952149
-Type: C, Title:  Stanley Kubrick, Director:  10, Year: 0, Stock: 1148952149
-Type: F, Title:  10, Director:  John Landis, Year: 0, Stock: 1148952149
-Type: D, Title:  Nancy Savoca, Director:  10, Year: 0, Stock: 1148952149
-Type: F, Title:  10, Director:  Nora Ephron, Year: 0, Stock: 1148952149
-
---- History for Customer 1000 ---
-
---- History for Customer 1111 ---
-
---- History for Customer 5000 ---
-
---- History for Customer 8000 ---
-
---- History for Customer 8888 ---
-End testStoreFinal
-=====================================
-Done.
+./create-output.sh: line 40: ./a.out: No such file or directory
 =====================================================
 3. If the section below is empty, then there are no clang-tidy warnings 
    (ignore warnings from system headers, such as "13554 warnings generated.")
 =====================================================
 [1/15] Processing file /home/cssuwbstudent/343-movies-sanaar/borrow.cpp.
-18129 warnings generated.
+18127 warnings generated.
 [2/15] Processing file /home/cssuwbstudent/343-movies-sanaar/classics.cpp.
-28193 warnings generated.
+28183 warnings generated.
 [3/15] Processing file /home/cssuwbstudent/343-movies-sanaar/comedy.cpp.
-38254 warnings generated.
+38240 warnings generated.
 [4/15] Processing file /home/cssuwbstudent/343-movies-sanaar/command.cpp.
-38254 warnings generated.
+38240 warnings generated.
 [5/15] Processing file /home/cssuwbstudent/343-movies-sanaar/commandfactory.cpp.
-56662 warnings generated.
+56641 warnings generated.
 [6/15] Processing file /home/cssuwbstudent/343-movies-sanaar/customer.cpp.
-71944 warnings generated.
+71923 warnings generated.
 [7/15] Processing file /home/cssuwbstudent/343-movies-sanaar/drama.cpp.
-82005 warnings generated.
+81980 warnings generated.
 [8/15] Processing file /home/cssuwbstudent/343-movies-sanaar/history.cpp.
-100134 warnings generated.
+100107 warnings generated.
 [9/15] Processing file /home/cssuwbstudent/343-movies-sanaar/inventory.cpp.
-114517 warnings generated.
+114488 warnings generated.
 [10/15] Processing file /home/cssuwbstudent/343-movies-sanaar/main.cpp.
-128320 warnings generated.
+128291 warnings generated.
 [11/15] Processing file /home/cssuwbstudent/343-movies-sanaar/movie.cpp.
-138376 warnings generated.
+138347 warnings generated.
 [12/15] Processing file /home/cssuwbstudent/343-movies-sanaar/read.cpp.
-157525 warnings generated.
+157491 warnings and 3 errors generated.
+Error while processing /home/cssuwbstudent/343-movies-sanaar/read.cpp.
 [13/15] Processing file /home/cssuwbstudent/343-movies-sanaar/return.cpp.
-175654 warnings generated.
+175618 warnings and 3 errors generated.
+Error while processing /home/cssuwbstudent/343-movies-sanaar/return.cpp.
 [14/15] Processing file /home/cssuwbstudent/343-movies-sanaar/store.cpp.
-193839 warnings generated.
+193803 warnings and 3 errors generated.
+Error while processing /home/cssuwbstudent/343-movies-sanaar/store.cpp.
 [15/15] Processing file /home/cssuwbstudent/343-movies-sanaar/store_test.cpp.
-214591 warnings generated.
-/home/cssuwbstudent/343-movies-sanaar/classics.cpp:37:10: error: implicit conversion 'const Classics *' -> 'bool' [readability-implicit-bool-conversion,-warnings-as-errors]
-   37 |     if (!rhs) return false;
-      |         ~^  
-      |              == nullptr
-/home/cssuwbstudent/343-movies-sanaar/classics.cpp:37:14: error: statement should be inside braces [readability-braces-around-statements,-warnings-as-errors]
-   37 |     if (!rhs) return false;
-      |              ^             
-      |               {
-/home/cssuwbstudent/343-movies-sanaar/classics.cpp:48:10: error: implicit conversion 'const Classics *' -> 'bool' [readability-implicit-bool-conversion,-warnings-as-errors]
-   48 |     if (!rhs) return false;
-      |         ~^  
-      |              == nullptr
-/home/cssuwbstudent/343-movies-sanaar/classics.cpp:48:14: error: statement should be inside braces [readability-braces-around-statements,-warnings-as-errors]
-   48 |     if (!rhs) return false;
-      |              ^             
-      |               {
-/home/cssuwbstudent/343-movies-sanaar/classics.cpp:49:55: error: statement should be inside braces [google-readability-braces-around-statements,readability-braces-around-statements,-warnings-as-errors]
-   49 |     if (getYearOfRelease() != rhs->getYearOfRelease())
-      |                                                       ^
-      |                                                        {
-   50 |         return getYearOfRelease() < rhs->getYearOfRelease();
-      |                                                             
-/home/cssuwbstudent/343-movies-sanaar/classics.cpp:51:43: error: statement should be inside braces [google-readability-braces-around-statements,readability-braces-around-statements,-warnings-as-errors]
-   51 |     if (releaseMonth != rhs->releaseMonth)
-      |                                           ^
-      |                                            {
-   52 |         return releaseMonth < rhs->releaseMonth;
-      |                                                 
-/home/cssuwbstudent/343-movies-sanaar/comedy.cpp:24:12: error: implicit conversion 'const Comedy *' -> 'bool' [readability-implicit-bool-conversion,-warnings-as-errors]
-   24 |     return rhs && getTitle() == rhs->getTitle() && getYearOfRelease() == rhs->getYearOfRelease();
-      |            ^
-      |            (   != nullptr)
-/home/cssuwbstudent/343-movies-sanaar/comedy.cpp:29:10: error: implicit conversion 'const Comedy *' -> 'bool' [readability-implicit-bool-conversion,-warnings-as-errors]
-   29 |     if (!rhs) return false;
-      |         ~^  
-      |              == nullptr
-/home/cssuwbstudent/343-movies-sanaar/comedy.cpp:29:14: error: statement should be inside braces [readability-braces-around-statements,-warnings-as-errors]
-   29 |     if (!rhs) return false;
-      |              ^             
-      |               {
-/home/cssuwbstudent/343-movies-sanaar/comedy.cpp:30:39: error: statement should be inside braces [google-readability-braces-around-statements,readability-braces-around-statements,-warnings-as-errors]
-   30 |     if (getTitle() != rhs->getTitle())
-      |                                       ^
-      |                                        {
-   31 |         return getTitle() < rhs->getTitle();
-      |                                             
+214551 warnings and 3 errors generated.
+Error while processing /home/cssuwbstudent/343-movies-sanaar/store_test.cpp.
+/home/cssuwbstudent/343-movies-sanaar/comedy.cpp:21:10: error: implicit conversion 'const Comedy *' -> 'bool' [readability-implicit-bool-conversion,-warnings-as-errors]
+   21 |   return rhs && getTitle() == rhs->getTitle() &&
+      |          ^
+      |          (   != nullptr)
 /home/cssuwbstudent/343-movies-sanaar/commandfactory.cpp:16:26: error: method 'createCommand' can be made static [readability-convert-member-functions-to-static,-warnings-as-errors]
    16 | Command *CommandFactory::createCommand(const string &line) {
       |                          ^
-/home/cssuwbstudent/343-movies-sanaar/commandfactory.cpp:45:13: error: multiple declarations in a single statement reduces readability [readability-isolate-declaration,-warnings-as-errors]
-   45 |             string title, yearStr;
-      |             ^~~~~~~~~~~~~~~~~~~~~~
-/home/cssuwbstudent/343-movies-sanaar/commandfactory.cpp:56:13: error: multiple declarations in a single statement reduces readability [readability-isolate-declaration,-warnings-as-errors]
-   56 |             string director, title;
-      |             ^~~~~~~~~~~~~~~~~~~~~~~
-/home/cssuwbstudent/343-movies-sanaar/commandfactory.cpp:76:13: error: multiple declarations in a single statement reduces readability [readability-isolate-declaration,-warnings-as-errors]
-   76 |             int month, year;
-      |             ^~~~~~~~~~~~~~~~
-/home/cssuwbstudent/343-movies-sanaar/commandfactory.cpp:77:13: error: multiple declarations in a single statement reduces readability [readability-isolate-declaration,-warnings-as-errors]
-   77 |             string first, last;
-      |             ^~~~~~~~~~~~~~~~~~~
-/home/cssuwbstudent/343-movies-sanaar/commandfactory.cpp:86:14: error: implicit conversion 'Movie *' -> 'bool' [readability-implicit-bool-conversion,-warnings-as-errors]
-   86 |         if (!movie) {
-      |             ~^    
-      |                    == nullptr
-/home/cssuwbstudent/343-movies-sanaar/drama.cpp:24:12: error: implicit conversion 'const Drama *' -> 'bool' [readability-implicit-bool-conversion,-warnings-as-errors]
-   24 |     return rhs && getDirector() == rhs->getDirector() && getTitle() == rhs->getTitle();
-      |            ^
-      |            (   != nullptr)
-/home/cssuwbstudent/343-movies-sanaar/drama.cpp:29:10: error: implicit conversion 'const Drama *' -> 'bool' [readability-implicit-bool-conversion,-warnings-as-errors]
-   29 |     if (!rhs) return false;
-      |         ~^  
-      |              == nullptr
-/home/cssuwbstudent/343-movies-sanaar/drama.cpp:29:14: error: statement should be inside braces [readability-braces-around-statements,-warnings-as-errors]
-   29 |     if (!rhs) return false;
-      |              ^             
-      |               {
-/home/cssuwbstudent/343-movies-sanaar/drama.cpp:30:45: error: statement should be inside braces [google-readability-braces-around-statements,readability-braces-around-statements,-warnings-as-errors]
-   30 |     if (getDirector() != rhs->getDirector())
-      |                                             ^
-      |                                              {
-   31 |         return getDirector() < rhs->getDirector();
-      |                                                   
-/home/cssuwbstudent/343-movies-sanaar/hashtable.h:15:31: error: statement should be inside braces [readability-braces-around-statements,-warnings-as-errors]
-   15 |         if (it != table.end()) return it->second;
-      |                               ^                  
-      |                                {
-/home/cssuwbstudent/343-movies-sanaar/read.cpp:2:1: error: #includes are not sorted properly [llvm-include-order,-warnings-as-errors]
-    2 | #include "store.h"
-      | ^        ~~~~~~~~~
-      |          "classics.h"
-    3 | #include "commandfactory.h"
-      |          ~~~~~~~~~~~~~~~~~~
-      |          "comedy.h"
-    4 | #include "command.h"
-    5 | #include "comedy.h"
-      |          ~~~~~~~~~~
-      |          "commandfactory.h"
-    6 | #include "drama.h"
-    7 | #include "classics.h"
-      |          ~~~~~~~~~~~~
-      |          "store.h"
-    8 | #include <fstream>
-    9 | #include <sstream>
-      |          ~~~~~~~~~
-      |          <iostream>
-   10 | #include <iostream>
-      |          ~~~~~~~~~~
-      |          <sstream>
-/home/cssuwbstudent/343-movies-sanaar/read.cpp:24:9: error: multiple declarations in a single statement reduces readability [readability-isolate-declaration,-warnings-as-errors]
-   24 |         std::string director, title;
-      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
-/home/cssuwbstudent/343-movies-sanaar/read.cpp:27:28: error: statement should be inside braces [readability-braces-around-statements,-warnings-as-errors]
-   27 |         if (!(iss >> type)) continue;
-      |                            ^         
-      |                             {
-/home/cssuwbstudent/343-movies-sanaar/read.cpp:41:13: error: multiple declarations in a single statement reduces readability [readability-isolate-declaration,-warnings-as-errors]
-   41 |             std::string actorFirst, actorLast;
-      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-/home/cssuwbstudent/343-movies-sanaar/read.cpp:59:5: error: multiple declarations in a single statement reduces readability [readability-isolate-declaration,-warnings-as-errors]
-   59 |     std::string firstName, lastName;
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-/home/cssuwbstudent/343-movies-sanaar/read.cpp:75:13: error: implicit conversion 'Command *' -> 'bool' [readability-implicit-bool-conversion,-warnings-as-errors]
-   75 |         if (command) {
-      |             ^      
-      |                     != nullptr
-/home/cssuwbstudent/343-movies-sanaar/read.h:13:1: error: namespace 'Read' not terminated with a closing comment [llvm-namespace-comment,-warnings-as-errors]
-   13 | }
-      | ^
-      |   // namespace Read
-/home/cssuwbstudent/343-movies-sanaar/read.h:9:11: note: namespace 'Read' starts here
-    9 | namespace Read {
-      |           ^
-/home/cssuwbstudent/343-movies-sanaar/store.cpp:21:26: error: statement should be inside braces [readability-braces-around-statements,-warnings-as-errors]
-   21 |     if (movie == nullptr) return false;
-      |                          ^             
-      |                           {
-/home/cssuwbstudent/343-movies-sanaar/store.cpp:37:26: error: statement should be inside braces [readability-braces-around-statements,-warnings-as-errors]
-   37 |     if (movie == nullptr) return false;
-      |                          ^             
-      |                           {
-/home/cssuwbstudent/343-movies-sanaar/store.h:4:1: error: #includes are not sorted properly [llvm-include-order,-warnings-as-errors]
-    4 | #include "customer.h"
-      | ^        ~~~~~~~~~~~~
-      |          "command.h"
-    5 | #include "command.h"
-      |          ~~~~~~~~~~~
-      |          "customer.h"
-    6 | #include "movie.h"
-      |          ~~~~~~~~~
-      |          "hashtable.h"
-    7 | #include "hashtable.h"
-      |          ~~~~~~~~~~~~~
-      |          "movie.h"
-    8 | #include <vector>
-      |          ~~~~~~~~
-      |          <string>
-    9 | #include <string>
-      |          ~~~~~~~~
-      |          <vector>
-/home/cssuwbstudent/343-movies-sanaar/store_test.cpp:16:1: error: #includes are not sorted properly [llvm-include-order,-warnings-as-errors]
-   16 | #include "store.h"
-      | ^        ~~~~~~~~~
-      |          "read.h"
-   17 | #include "read.h"
-      |          ~~~~~~~~
-      |          "store.h"
+/home/cssuwbstudent/343-movies-sanaar/drama.cpp:19:10: error: implicit conversion 'const Drama *' -> 'bool' [readability-implicit-bool-conversion,-warnings-as-errors]
+   19 |   return rhs && getDirector() == rhs->getDirector() &&
+      |          ^
+      |          (   != nullptr)
+/home/cssuwbstudent/343-movies-sanaar/read.cpp:32:27: error: expected ';' at end of declaration [clang-diagnostic-error]
+   32 |       std::string stockStr
+      |                           ^
+      |                           ;
+/home/cssuwbstudent/343-movies-sanaar/read.cpp:33:27: error: expected ';' at end of declaration [clang-diagnostic-error]
+   33 |       std::string director
+      |                           ^
+      |                           ;
+/home/cssuwbstudent/343-movies-sanaar/read.cpp:34:24: error: expected ';' at end of declaration [clang-diagnostic-error]
+   34 |       std::string title
+      |                        ^
+      |                        ;
+/home/cssuwbstudent/343-movies-sanaar/read.cpp:107:3: error: multiple declarations in a single statement reduces readability [readability-isolate-declaration,-warnings-as-errors]
+  107 |   std::string firstName, lastName;
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/cssuwbstudent/343-movies-sanaar/read.cpp:123:22: error: statement should be inside braces [google-readability-braces-around-statements,readability-braces-around-statements,-warnings-as-errors]
+  123 |     if (line.empty())
+      |                      ^
+      |                       {
+  124 |       continue;
+      |                
+/home/cssuwbstudent/343-movies-sanaar/read.cpp:127:9: error: implicit conversion 'Command *' -> 'bool' [readability-implicit-bool-conversion,-warnings-as-errors]
+  127 |     if (command) {
+      |         ^      
+      |                 != nullptr
+/home/cssuwbstudent/343-movies-sanaar/store.cpp:21:24: error: statement should be inside braces [google-readability-braces-around-statements,readability-braces-around-statements,-warnings-as-errors]
+   21 |   if (movie == nullptr)
+      |                        ^
+      |                         {
+   22 |     return false;
+      |                  
+/home/cssuwbstudent/343-movies-sanaar/store.cpp:39:24: error: statement should be inside braces [google-readability-braces-around-statements,readability-braces-around-statements,-warnings-as-errors]
+   39 |   if (movie == nullptr)
+      |                        ^
+      |                         {
+   40 |     return false;
+      |                  
 Suppressed 214540 warnings (214540 in non-user code).
 Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
-32 warnings treated as errors
+8 warnings treated as errors
 =====================================================
 4. If the section below is empty, clang-format does not find any formatting issues
    You can fix formatting errors using "clang-format -i <filename>" on command line
@@ -418,373 +145,11 @@ Running clang-format on ./borrow.cpp
 > Borrow::~Borrow() { delete movie; }
 \ No newline at end of file
 Running clang-format on ./classics.cpp
-3,6c3,6
-< Classics::Classics(int stock, std::string director, std::string title,
-<                    int year, int month, std::string actorFirst, std::string actorLast)
-<     : Movie(stock, director, title, year),
-<       majorActorFirst(actorFirst), majorActorLast(actorLast), releaseMonth(month) {}
----
-> Classics::Classics(int stock, std::string director, std::string title, int year,
->                    int month, std::string actorFirst, std::string actorLast)
->     : Movie(stock, director, title, year), majorActorFirst(actorFirst),
->       majorActorLast(actorLast), releaseMonth(month) {}
-9c9
-<     return majorActorFirst + " " + majorActorLast;
----
->   return majorActorFirst + " " + majorActorLast;
-12,14c12
-< int Classics::getMonth() const {
-<     return releaseMonth;
-< }
----
-> int Classics::getMonth() const { return releaseMonth; }
-16,18c14
-< char Classics::getMovieType() const {
-<     return 'C';
-< }
----
-> char Classics::getMovieType() const { return 'C'; }
-20,22c16
-< char Classics::getType() const {
-<     return 'C';
-< }
----
-> char Classics::getType() const { return 'C'; }
-25,26c19,20
-<     return std::to_string(getYearOfRelease()) +
-<            std::to_string(getMonth()) + getMajorActor();
----
->   return std::to_string(getYearOfRelease()) + std::to_string(getMonth()) +
->          getMajorActor();
-30,32c24,25
-<     return getTitle() + ", " + getDirector() + ", " +
-<            getMajorActor() + ", " + std::to_string(getMonth()) +
-<            "/" + std::to_string(getYearOfRelease());
----
->   return getTitle() + ", " + getDirector() + ", " + getMajorActor() + ", " +
->          std::to_string(getMonth()) + "/" + std::to_string(getYearOfRelease());
-36,43c29,36
-<     const Classics* rhs = dynamic_cast<const Classics*>(&other);
-<     if (!rhs) return false;
-<     return getTitle() == rhs->getTitle() &&
-<            getDirector() == rhs->getDirector() &&
-<            getYearOfRelease() == rhs->getYearOfRelease() &&
-<            releaseMonth == rhs->releaseMonth &&
-<            majorActorFirst == rhs->majorActorFirst &&
-<            majorActorLast == rhs->majorActorLast;
----
->   const Classics *rhs = dynamic_cast<const Classics *>(&other);
->   if (!rhs)
->     return false;
->   return getTitle() == rhs->getTitle() && getDirector() == rhs->getDirector() &&
->          getYearOfRelease() == rhs->getYearOfRelease() &&
->          releaseMonth == rhs->releaseMonth &&
->          majorActorFirst == rhs->majorActorFirst &&
->          majorActorLast == rhs->majorActorLast;
-47,53c40,47
-<     const Classics* rhs = dynamic_cast<const Classics*>(&other);
-<     if (!rhs) return false;
-<     if (getYearOfRelease() != rhs->getYearOfRelease())
-<         return getYearOfRelease() < rhs->getYearOfRelease();
-<     if (releaseMonth != rhs->releaseMonth)
-<         return releaseMonth < rhs->releaseMonth;
-<     return getMajorActor() < rhs->getMajorActor();
----
->   const Classics *rhs = dynamic_cast<const Classics *>(&other);
->   if (!rhs)
->     return false;
->   if (getYearOfRelease() != rhs->getYearOfRelease())
->     return getYearOfRelease() < rhs->getYearOfRelease();
->   if (releaseMonth != rhs->releaseMonth)
->     return releaseMonth < rhs->releaseMonth;
->   return getMajorActor() < rhs->getMajorActor();
 Running clang-format on ./comedy.cpp
-6,8c6
-< char Comedy::getMovieType() const {
-<     return 'F';
-< }
----
-> char Comedy::getMovieType() const { return 'F'; }
-10,12c8
-< char Comedy::getType() const {
-<     return 'F';
-< }
----
-> char Comedy::getType() const { return 'F'; }
-15c11
-<     return getTitle() + std::to_string(getYearOfRelease());
----
->   return getTitle() + std::to_string(getYearOfRelease());
-19c15,16
-<     return getTitle() + ", " + getDirector() + ", " + std::to_string(getYearOfRelease());
----
->   return getTitle() + ", " + getDirector() + ", " +
->          std::to_string(getYearOfRelease());
-23,24c20,22
-<     const Comedy* rhs = dynamic_cast<const Comedy*>(&other);
-<     return rhs && getTitle() == rhs->getTitle() && getYearOfRelease() == rhs->getYearOfRelease();
----
->   const Comedy *rhs = dynamic_cast<const Comedy *>(&other);
->   return rhs && getTitle() == rhs->getTitle() &&
->          getYearOfRelease() == rhs->getYearOfRelease();
-28,32c26,31
-<     const Comedy* rhs = dynamic_cast<const Comedy*>(&other);
-<     if (!rhs) return false;
-<     if (getTitle() != rhs->getTitle())
-<         return getTitle() < rhs->getTitle();
-<     return getYearOfRelease() < rhs->getYearOfRelease();
----
->   const Comedy *rhs = dynamic_cast<const Comedy *>(&other);
->   if (!rhs)
->     return false;
->   if (getTitle() != rhs->getTitle())
->     return getTitle() < rhs->getTitle();
->   return getYearOfRelease() < rhs->getYearOfRelease();
 Running clang-format on ./command.cpp
 Running clang-format on ./commandfactory.cpp
-17,22c17,28
-<     istringstream iss(line);
-<     char commandType;
-<     iss >> commandType;
-< 
-<     if (commandType == 'I') {
-<         return new Inventory();
----
->   istringstream iss(line);
->   char commandType;
->   iss >> commandType;
-> 
->   if (commandType == 'I') {
->     return new Inventory();
->   }
-> 
->   if (commandType == 'H') {
->     int customerId;
->     if (iss >> customerId) {
->       return new History(customerId);
-23a30
->   }
-25,29c32,39
-<     if (commandType == 'H') {
-<         int customerId;
-<         if (iss >> customerId) {
-<             return new History(customerId);
-<         }
----
->   if (commandType == 'B' || commandType == 'R') {
->     int customerId;
->     char mediaType;
->     char movieType;
-> 
->     if (!(iss >> customerId >> mediaType >> movieType)) {
->       cerr << "Invalid format for borrow/return command: " << line << endl;
->       return nullptr;
-32,42c42
-<     if (commandType == 'B' || commandType == 'R') {
-<         int customerId;
-<         char mediaType;
-<         char movieType;
-< 
-<         if (!(iss >> customerId >> mediaType >> movieType)) {
-<             cerr << "Invalid format for borrow/return command: " << line << endl;
-<             return nullptr;
-<         }
-< 
-<         Movie *movie = nullptr;
----
->     Movie *movie = nullptr;
-44,83c44,68
-<         if (movieType == 'F') {
-<             string title, yearStr;
-<             getline(iss, title, ',');
-<             getline(iss, yearStr);
-<             try {
-<                 movie = new Comedy(0, "", title, stoi(yearStr));
-<             } catch (...) {
-<                 cerr << "Invalid comedy command: " << line << endl;
-<                 return nullptr;
-<             }
-< 
-<         } else if (movieType == 'D') {
-<             string director, title;
-<             getline(iss, director, ',');
-<             getline(iss, title);
-<             size_t commaPos = title.find(',');
-<             if (commaPos != string::npos && commaPos + 1 < title.length()) {
-<                 string actualTitle = title.substr(0, commaPos);
-<                 string yearStr = title.substr(commaPos + 1);
-<                 try {
-<                     int year = stoi(yearStr);
-<                     movie = new Drama(0, director, actualTitle, year);
-<                 } catch (...) {
-<                     cerr << "Invalid year in drama command: " << line << endl;
-<                     return nullptr;
-<                 }
-<             } else {
-<                 cerr << "Drama movie line incorrectly formatted: " << line << endl;
-<                 return nullptr;
-<             }
-< 
-<         } else if (movieType == 'C') {
-<             int month, year;
-<             string first, last;
-<             if (iss >> month >> year >> first >> last) {
-<                 movie = new Classics(0, "", "", year, month, first, last);
-<             } else {
-<                 cerr << "Classics movie line incorrectly formatted: " << line << endl;
-<                 return nullptr;
-<             }
----
->     if (movieType == 'F') {
->       string title, yearStr;
->       getline(iss, title, ',');
->       getline(iss, yearStr);
->       try {
->         movie = new Comedy(0, "", title, stoi(yearStr));
->       } catch (...) {
->         cerr << "Invalid comedy command: " << line << endl;
->         return nullptr;
->       }
-> 
->     } else if (movieType == 'D') {
->       string director, title;
->       getline(iss, director, ',');
->       getline(iss, title);
->       size_t commaPos = title.find(',');
->       if (commaPos != string::npos && commaPos + 1 < title.length()) {
->         string actualTitle = title.substr(0, commaPos);
->         string yearStr = title.substr(commaPos + 1);
->         try {
->           int year = stoi(yearStr);
->           movie = new Drama(0, director, actualTitle, year);
->         } catch (...) {
->           cerr << "Invalid year in drama command: " << line << endl;
->           return nullptr;
-84a70,84
->       } else {
->         cerr << "Drama movie line incorrectly formatted: " << line << endl;
->         return nullptr;
->       }
-> 
->     } else if (movieType == 'C') {
->       int month, year;
->       string first, last;
->       if (iss >> month >> year >> first >> last) {
->         movie = new Classics(0, "", "", year, month, first, last);
->       } else {
->         cerr << "Classics movie line incorrectly formatted: " << line << endl;
->         return nullptr;
->       }
->     }
-86,89c86,89
-<         if (!movie) {
-<             cerr << "Failed to create movie: " << line << endl;
-<             return nullptr;
-<         }
----
->     if (!movie) {
->       cerr << "Failed to create movie: " << line << endl;
->       return nullptr;
->     }
-91,94c91,92
-<         if (commandType == 'B') {
-<             return new Borrow(customerId, movie);
-<         }
-<         return new Return(customerId, movie);
----
->     if (commandType == 'B') {
->       return new Borrow(customerId, movie);
-95a94,95
->     return new Return(customerId, movie);
->   }
-97,98c97,98
-<     cerr << "Unknown command type or movie type: " << line << endl;
-<     return nullptr;
----
->   cerr << "Unknown command type or movie type: " << line << endl;
->   return nullptr;
 Running clang-format on ./customer.cpp
-4,5c4
-< Customer::Customer(int id, const std::string& name)
-<     : id(id), name(name) {}
----
-> Customer::Customer(int id, const std::string &name) : id(id), name(name) {}
-7,8c6,7
-< void Customer::addHistory(const std::string& record) {
-<     history.push_back(record);
----
-> void Customer::addHistory(const std::string &record) {
->   history.push_back(record);
-12,14c11,13
-<     for (const auto& entry : history) {
-<         std::cout << entry << std::endl;
-<     }
----
->   for (const auto &entry : history) {
->     std::cout << entry << std::endl;
->   }
-17,19c16
-< int Customer::getId() const {
-<     return id;
-< }
----
-> int Customer::getId() const { return id; }
-21,23c18
-< std::string Customer::getName() const {
-<     return name;
-< }
-\ No newline at end of file
----
-> std::string Customer::getName() const { return name; }
-\ No newline at end of file
 Running clang-format on ./drama.cpp
-6,8c6
-< char Drama::getMovieType() const {
-<     return 'D';
-< }
----
-> char Drama::getMovieType() const { return 'D'; }
-10,12c8
-< char Drama::getType() const {
-<     return 'D';
-< }
----
-> char Drama::getType() const { return 'D'; }
-14,16c10
-< std::string Drama::getKey() const {
-<     return getDirector() + getTitle();
-< }
----
-> std::string Drama::getKey() const { return getDirector() + getTitle(); }
-19c13,14
-<     return getTitle() + ", " + getDirector() + ", " + std::to_string(getYearOfRelease());
----
->   return getTitle() + ", " + getDirector() + ", " +
->          std::to_string(getYearOfRelease());
-22,24c17,20
-< bool Drama::operator==(const Movie& other) const {
-<     const Drama* rhs = dynamic_cast<const Drama*>(&other);
-<     return rhs && getDirector() == rhs->getDirector() && getTitle() == rhs->getTitle();
----
-> bool Drama::operator==(const Movie &other) const {
->   const Drama *rhs = dynamic_cast<const Drama *>(&other);
->   return rhs && getDirector() == rhs->getDirector() &&
->          getTitle() == rhs->getTitle();
-27,32c23,29
-< bool Drama::operator<(const Movie& other) const {
-<     const Drama* rhs = dynamic_cast<const Drama*>(&other);
-<     if (!rhs) return false;
-<     if (getDirector() != rhs->getDirector())
-<         return getDirector() < rhs->getDirector();
-<     return getTitle() < rhs->getTitle();
----
-> bool Drama::operator<(const Movie &other) const {
->   const Drama *rhs = dynamic_cast<const Drama *>(&other);
->   if (!rhs)
->     return false;
->   if (getDirector() != rhs->getDirector())
->     return getDirector() < rhs->getDirector();
->   return getTitle() < rhs->getTitle();
 Running clang-format on ./history.cpp
 7,8c7,8
 < void History::execute(Store* store) {
@@ -793,199 +158,17 @@ Running clang-format on ./history.cpp
 > void History::execute(Store *store) {
 >   store->displayCustomerHistory(customerId);
 Running clang-format on ./inventory.cpp
-4,6c4
-< void Inventory::execute(Store* store) {
-<     store->displayInventory();
-< }
----
-> void Inventory::execute(Store *store) { store->displayInventory(); }
 Running clang-format on ./main.cpp
 Running clang-format on ./movie.cpp
-6,8c6
-< int Movie::getStock() const {
-<     return stock;
-< }
----
-> int Movie::getStock() const { return stock; }
-10,12c8
-< void Movie::setStock(int s) {
-<     stock = s;
-< }
----
-> void Movie::setStock(int s) { stock = s; }
-14,16c10
-< std::string Movie::getDirector() const {
-<     return director;
-< }
----
-> std::string Movie::getDirector() const { return director; }
-18,20c12
-< std::string Movie::getTitle() const {
-<     return title;
-< }
----
-> std::string Movie::getTitle() const { return title; }
-22,24c14
-< int Movie::getYearOfRelease() const {
-<     return yearOfRelease;
-< }
-\ No newline at end of file
----
-> int Movie::getYearOfRelease() const { return yearOfRelease; }
-\ No newline at end of file
 Running clang-format on ./read.cpp
-2,4c2
-< #include "store.h"
-< #include "commandfactory.h"
-< #include "command.h"
+32,35c32,33
+<       std::string stockStr
+<       std::string director
+<       std::string title
+<       std::string yearStr;
 ---
-> #include "classics.h"
-5a4,5
-> #include "command.h"
-> #include "commandfactory.h"
-7c7
-< #include "classics.h"
----
-> #include "store.h"
-9d8
-< #include <sstream>
-10a10
-> #include <sstream>
-12,47c12,48
-< void Read::readMovies(const std::string& filename, Store* store) {
-<     std::ifstream file(filename);
-<     if (!file) {
-<         std::cerr << "Could not open movie file: " << filename << std::endl;
-<         return;
-<     }
-< 
-<     std::string line;
-<     while (getline(file, line)) {
-<         std::istringstream iss(line);
-<         char type;
-<         int stock;
-<         std::string director, title;
-<         int year;
-< 
-<         if (!(iss >> type)) continue;
-<         iss.ignore();  // skip comma
-< 
-<         if (type == 'F') {
-<             getline(iss, title, ',');
-<             getline(iss, director, ',');
-<             iss >> year >> stock;
-<             store->addMovie(new Comedy(stock, director, title, year));
-<         } else if (type == 'D') {
-<             getline(iss, director, ',');
-<             getline(iss, title, ',');
-<             iss >> year >> stock;
-<             store->addMovie(new Drama(stock, director, title, year));
-<         } else if (type == 'C') {
-<             std::string actorFirst, actorLast;
-<             int month;
-<             getline(iss, director, ',');
-<             getline(iss, title, ',');
-<             iss >> actorFirst >> actorLast >> month >> year >> stock;
-<             store->addMovie(new Classics(stock, director, title, year, month, actorFirst, actorLast));
-<         }
----
-> void Read::readMovies(const std::string &filename, Store *store) {
->   std::ifstream file(filename);
->   if (!file) {
->     std::cerr << "Could not open movie file: " << filename << std::endl;
->     return;
->   }
-> 
->   std::string line;
->   while (getline(file, line)) {
->     std::istringstream iss(line);
->     char type;
->     int stock;
->     std::string director, title;
->     int year;
-> 
->     if (!(iss >> type))
->       continue;
->     iss.ignore(); // skip comma
-> 
->     if (type == 'F') {
->       getline(iss, title, ',');
->       getline(iss, director, ',');
->       iss >> year >> stock;
->       store->addMovie(new Comedy(stock, director, title, year));
->     } else if (type == 'D') {
->       getline(iss, director, ',');
->       getline(iss, title, ',');
->       iss >> year >> stock;
->       store->addMovie(new Drama(stock, director, title, year));
->     } else if (type == 'C') {
->       std::string actorFirst, actorLast;
->       int month;
->       getline(iss, director, ',');
->       getline(iss, title, ',');
->       iss >> actorFirst >> actorLast >> month >> year >> stock;
->       store->addMovie(new Classics(stock, director, title, year, month,
->                                    actorFirst, actorLast));
-48a50
->   }
-51,62c53,64
-< void Read::readCustomers(const std::string& filename, Store* store) {
-<     std::ifstream file(filename);
-<     if (!file) {
-<         std::cerr << "Could not open customer file: " << filename << std::endl;
-<         return;
-<     }
-< 
-<     int id;
-<     std::string firstName, lastName;
-<     while (file >> id >> firstName >> lastName) {
-<         store->addCustomer(id, firstName + " " + lastName);
-<     }
----
-> void Read::readCustomers(const std::string &filename, Store *store) {
->   std::ifstream file(filename);
->   if (!file) {
->     std::cerr << "Could not open customer file: " << filename << std::endl;
->     return;
->   }
-> 
->   int id;
->   std::string firstName, lastName;
->   while (file >> id >> firstName >> lastName) {
->     store->addCustomer(id, firstName + " " + lastName);
->   }
-65,78c67,80
-< void Read::readCommands(const std::string& filename, Store* store, CommandFactory& factory) {
-<     std::ifstream file(filename);
-<     if (!file) {
-<         std::cerr << "Could not open commands file: " << filename << std::endl;
-<         return;
-<     }
-< 
-<     std::string line;
-<     while (getline(file, line)) {
-<         Command* command = factory.createCommand(line);
-<         if (command) {
-<             store->executeCommand(command);
-<             delete command;
-<         }
----
-> void Read::readCommands(const std::string &filename, Store *store,
->                         CommandFactory &factory) {
->   std::ifstream file(filename);
->   if (!file) {
->     std::cerr << "Could not open commands file: " << filename << std::endl;
->     return;
->   }
-> 
->   std::string line;
->   while (getline(file, line)) {
->     Command *command = factory.createCommand(line);
->     if (command) {
->       store->executeCommand(command);
->       delete command;
-79a82
->   }
+>       std::string stockStr std::string director std::string title
+>           std::string yearStr;
 Running clang-format on ./return.cpp
 5c5,6
 < Return::Return(int customerId, Movie* movie) : customerId(customerId), movie(movie) {}
@@ -1012,358 +195,48 @@ Running clang-format on ./return.cpp
 > Return::~Return() { delete movie; }
 \ No newline at end of file
 Running clang-format on ./store.cpp
-8,11c8,11
-< void Store::addMovie(Movie* movie) {
-<     if (movie != nullptr) {
-<         inventory.push_back(movie);
-<     }
----
-> void Store::addMovie(Movie *movie) {
->   if (movie != nullptr) {
->     inventory.push_back(movie);
->   }
-14,17c14,17
-< void Store::addCustomer(int id, const std::string& name) {
-<     if (!customers.contains(id)) {
-<         customers.insert(id, new Customer(id, name));
-<     }
----
-> void Store::addCustomer(int id, const std::string &name) {
->   if (!customers.contains(id)) {
->     customers.insert(id, new Customer(id, name));
->   }
-20,21c20,22
-< bool Store::borrowMovie(Movie* movie, int customerId) {
-<     if (movie == nullptr) return false;
----
-> bool Store::borrowMovie(Movie *movie, int customerId) {
->   if (movie == nullptr)
->     return false;
-23,24c24,25
-<     Customer* customer = getCustomer(customerId);
-<     Movie* inventoryMovie = findMovie(*movie);
----
->   Customer *customer = getCustomer(customerId);
->   Movie *inventoryMovie = findMovie(*movie);
-26,29c27,31
-<     if (customer == nullptr || inventoryMovie == nullptr || inventoryMovie->getStock() <= 0) {
-<         cout << "Borrow failed: invalid movie, customer ID, or out of stock.\n";
-<         return false;
-<     }
----
->   if (customer == nullptr || inventoryMovie == nullptr ||
->       inventoryMovie->getStock() <= 0) {
->     cout << "Borrow failed: invalid movie, customer ID, or out of stock.\n";
->     return false;
->   }
-31,33c33,35
-<     inventoryMovie->setStock(inventoryMovie->getStock() - 1);
-<     customer->addHistory("Borrowed: " + inventoryMovie->getTitle());
-<     return true;
----
->   inventoryMovie->setStock(inventoryMovie->getStock() - 1);
->   customer->addHistory("Borrowed: " + inventoryMovie->getTitle());
->   return true;
-36,37c38,40
-< bool Store::returnMovie(Movie* movie, int customerId) {
-<     if (movie == nullptr) return false;
----
-> bool Store::returnMovie(Movie *movie, int customerId) {
->   if (movie == nullptr)
->     return false;
-39,40c42,43
-<     Customer* customer = getCustomer(customerId);
-<     Movie* inventoryMovie = findMovie(*movie);
----
->   Customer *customer = getCustomer(customerId);
->   Movie *inventoryMovie = findMovie(*movie);
-42,45c45,48
-<     if (customer == nullptr || inventoryMovie == nullptr) {
-<         cout << "Return failed: invalid movie or customer ID.\n";
-<         return false;
-<     }
----
->   if (customer == nullptr || inventoryMovie == nullptr) {
->     cout << "Return failed: invalid movie or customer ID.\n";
->     return false;
->   }
-47,49c50,52
-<     inventoryMovie->setStock(inventoryMovie->getStock() + 1);
-<     customer->addHistory("Returned: " + inventoryMovie->getTitle());
-<     return true;
----
->   inventoryMovie->setStock(inventoryMovie->getStock() + 1);
->   customer->addHistory("Returned: " + inventoryMovie->getTitle());
->   return true;
-53,60c56,63
-<     cout << "\n--- Store Inventory ---\n";
-<     for (Movie* m : inventory) {
-<         cout << "Type: " << m->getMovieType() << ", "
-<              << "Title: " << m->getTitle() << ", "
-<              << "Director: " << m->getDirector() << ", "
-<              << "Year: " << m->getYearOfRelease() << ", "
-<              << "Stock: " << m->getStock() << "\n";
-<     }
----
->   cout << "\n--- Store Inventory ---\n";
->   for (Movie *m : inventory) {
->     cout << "Type: " << m->getMovieType() << ", "
->          << "Title: " << m->getTitle() << ", "
->          << "Director: " << m->getDirector() << ", "
->          << "Year: " << m->getYearOfRelease() << ", "
->          << "Stock: " << m->getStock() << "\n";
->   }
-64,68c67,71
-<     Customer* customer = getCustomer(customerId);
-<     if (customer == nullptr) {
-<         cout << "Customer ID " << customerId << " not found.\n";
-<         return;
-<     }
----
->   Customer *customer = getCustomer(customerId);
->   if (customer == nullptr) {
->     cout << "Customer ID " << customerId << " not found.\n";
->     return;
->   }
-70,71c73,74
-<     cout << "\n--- History for Customer " << customerId << " ---\n";
-<     customer->printHistory();
----
->   cout << "\n--- History for Customer " << customerId << " ---\n";
->   customer->printHistory();
-74,77c77,80
-< void Store::executeCommand(Command* command) {
-<     if (command != nullptr) {
-<         command->execute(this);
-<     }
----
-> void Store::executeCommand(Command *command) {
->   if (command != nullptr) {
->     command->execute(this);
->   }
-80,81c83,84
-< Customer* Store::getCustomer(int customerId) const {
-<     return customers.get(customerId);
----
-> Customer *Store::getCustomer(int customerId) const {
->   return customers.get(customerId);
-84,88c87,90
-< Movie* Store::findMovie(const Movie& movie) const {
-<     for (Movie* m : inventory) {
-<         if (*m == movie) {
-<             return m;
-<         }
----
-> Movie *Store::findMovie(const Movie &movie) const {
->   for (Movie *m : inventory) {
->     if (*m == movie) {
->       return m;
-90c92,93
-<     return nullptr;
----
->   }
->   return nullptr;
 Running clang-format on ./store_test.cpp
-16d15
-< #include "store.h"
-17a17
-> #include "store.h"
-22,23c22,23
-<     cout << "Start testStore1" << endl;
-<     string cfile = "testcommands-1.txt";
----
->   cout << "Start testStore1" << endl;
->   string cfile = "testcommands-1.txt";
-25,37c25,37
-<     ifstream fs(cfile);
-<     assert(fs.is_open());
-<     stringstream out;
-<     char commandType;
-<     string discard;
-<     while (fs >> commandType) {
-<         out << commandType;
-<         getline(fs, discard);
-<     }
-<     fs.close();
-<     string result = "IHHBRIBBIH";
-<     assert(out.str() == result);
-<     cout << "End testStore1" << endl;
----
->   ifstream fs(cfile);
->   assert(fs.is_open());
->   stringstream out;
->   char commandType;
->   string discard;
->   while (fs >> commandType) {
->     out << commandType;
->     getline(fs, discard);
->   }
->   fs.close();
->   string result = "IHHBRIBBIH";
->   assert(out.str() == result);
->   cout << "End testStore1" << endl;
-41,42c41,42
-<     cout << "Start testStore2" << endl;
-<     cout << "End testStore2" << endl;
----
->   cout << "Start testStore2" << endl;
->   cout << "End testStore2" << endl;
-46,47c46,47
-<     cout << "=====================================" << endl;
-<     cout << "Start testStoreFinal" << endl;
----
->   cout << "=====================================" << endl;
->   cout << "Start testStoreFinal" << endl;
-49,50c49,50
-<     Store store;
-<     CommandFactory factory(&store);
----
->   Store store;
->   CommandFactory factory(&store);
-52,54c52,54
-<     Read::readCustomers("data4customers.txt", &store);
-<     Read::readMovies("data4movies.txt", &store);
-<     Read::readCommands("data4commands.txt", &store, factory);
----
->   Read::readCustomers("data4customers.txt", &store);
->   Read::readMovies("data4movies.txt", &store);
->   Read::readCommands("data4commands.txt", &store, factory);
-56,57c56,57
-<     cout << "End testStoreFinal" << endl;
-<     cout << "=====================================" << endl;
----
->   cout << "End testStoreFinal" << endl;
->   cout << "=====================================" << endl;
-61,63c61,63
-<     testStore1();
-<     testStore2();
-<     testStoreFinal();
----
->   testStore1();
->   testStore2();
->   testStoreFinal();
 =====================================================
 5. If there are any memory leaks, it should be in the output below
 =====================================================
+read.cpp: In function ‘void Read::readMovies(const string&, Store*)’:
+read.cpp:33:7: error: expected initializer before ‘std’
+   33 |       std::string director
+      |       ^~~
+read.cpp:36:20: error: ‘stockStr’ was not declared in this scope
+   36 |       getline(iss, stockStr, ',');
+      |                    ^~~~~~~~
+read.cpp:37:20: error: ‘director’ was not declared in this scope
+   37 |       getline(iss, director, ',');
+      |                    ^~~~~~~~
+read.cpp:38:20: error: ‘title’ was not declared in this scope
+   38 |       getline(iss, title, ',');
+      |                    ^~~~~
+read.cpp:39:20: error: ‘yearStr’ was not declared in this scope
+   39 |       getline(iss, yearStr);
+      |                    ^~~~~~~
 =====================================================
 6. Using valgrind to check for memory leaks
    Check for "definitely lost" in the output below
 =====================================================
-==88241== Memcheck, a memory error detector
-==88241== Copyright (C) 2002-2024, and GNU GPL'd, by Julian Seward et al.
-==88241== Using Valgrind-3.23.0 and LibVEX; rerun with -h for copyright info
-==88241== Command: ./a.out
-==88241== Parent PID: 87775
-==88241== 
-==88241== Conditional jump or move depends on uninitialised value(s)
-==88241==    at 0x498EF92: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib64/libstdc++.so.6.0.29)
-==88241==    by 0x499E53B: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib64/libstdc++.so.6.0.29)
-==88241==    by 0x408972: Store::displayInventory() const (store.cpp:59)
-==88241==    by 0x4075E9: Inventory::execute(Store*) (inventory.cpp:5)
-==88241==    by 0x408AEE: Store::executeCommand(Command*) (store.cpp:76)
-==88241==    by 0x408271: Read::readCommands(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, Store*, CommandFactory&) (read.cpp:76)
-==88241==    by 0x40B2C4: testStoreFinal() (store_test.cpp:54)
-==88241==    by 0x40B3C7: testAll() (store_test.cpp:63)
-==88241==    by 0x407649: main (main.cpp:13)
-==88241== 
-==88241== Use of uninitialised value of size 8
-==88241==    at 0x498D4FB: ??? (in /usr/lib64/libstdc++.so.6.0.29)
-==88241==    by 0x498EFBC: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib64/libstdc++.so.6.0.29)
-==88241==    by 0x499E53B: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib64/libstdc++.so.6.0.29)
-==88241==    by 0x408972: Store::displayInventory() const (store.cpp:59)
-==88241==    by 0x4075E9: Inventory::execute(Store*) (inventory.cpp:5)
-==88241==    by 0x408AEE: Store::executeCommand(Command*) (store.cpp:76)
-==88241==    by 0x408271: Read::readCommands(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, Store*, CommandFactory&) (read.cpp:76)
-==88241==    by 0x40B2C4: testStoreFinal() (store_test.cpp:54)
-==88241==    by 0x40B3C7: testAll() (store_test.cpp:63)
-==88241==    by 0x407649: main (main.cpp:13)
-==88241== 
-==88241== Conditional jump or move depends on uninitialised value(s)
-==88241==    at 0x498D50D: ??? (in /usr/lib64/libstdc++.so.6.0.29)
-==88241==    by 0x498EFBC: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib64/libstdc++.so.6.0.29)
-==88241==    by 0x499E53B: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib64/libstdc++.so.6.0.29)
-==88241==    by 0x408972: Store::displayInventory() const (store.cpp:59)
-==88241==    by 0x4075E9: Inventory::execute(Store*) (inventory.cpp:5)
-==88241==    by 0x408AEE: Store::executeCommand(Command*) (store.cpp:76)
-==88241==    by 0x408271: Read::readCommands(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, Store*, CommandFactory&) (read.cpp:76)
-==88241==    by 0x40B2C4: testStoreFinal() (store_test.cpp:54)
-==88241==    by 0x40B3C7: testAll() (store_test.cpp:63)
-==88241==    by 0x407649: main (main.cpp:13)
-==88241== 
-==88241== Conditional jump or move depends on uninitialised value(s)
-==88241==    at 0x498EFF2: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib64/libstdc++.so.6.0.29)
-==88241==    by 0x499E53B: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib64/libstdc++.so.6.0.29)
-==88241==    by 0x408972: Store::displayInventory() const (store.cpp:59)
-==88241==    by 0x4075E9: Inventory::execute(Store*) (inventory.cpp:5)
-==88241==    by 0x408AEE: Store::executeCommand(Command*) (store.cpp:76)
-==88241==    by 0x408271: Read::readCommands(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, Store*, CommandFactory&) (read.cpp:76)
-==88241==    by 0x40B2C4: testStoreFinal() (store_test.cpp:54)
-==88241==    by 0x40B3C7: testAll() (store_test.cpp:63)
-==88241==    by 0x407649: main (main.cpp:13)
-==88241== 
-==88241== Conditional jump or move depends on uninitialised value(s)
-==88241==    at 0x498EF92: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib64/libstdc++.so.6.0.29)
-==88241==    by 0x499E53B: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib64/libstdc++.so.6.0.29)
-==88241==    by 0x4089A5: Store::displayInventory() const (store.cpp:59)
-==88241==    by 0x4075E9: Inventory::execute(Store*) (inventory.cpp:5)
-==88241==    by 0x408AEE: Store::executeCommand(Command*) (store.cpp:76)
-==88241==    by 0x408271: Read::readCommands(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, Store*, CommandFactory&) (read.cpp:76)
-==88241==    by 0x40B2C4: testStoreFinal() (store_test.cpp:54)
-==88241==    by 0x40B3C7: testAll() (store_test.cpp:63)
-==88241==    by 0x407649: main (main.cpp:13)
-==88241== 
-==88241== Use of uninitialised value of size 8
-==88241==    at 0x498D4FB: ??? (in /usr/lib64/libstdc++.so.6.0.29)
-==88241==    by 0x498EFBC: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib64/libstdc++.so.6.0.29)
-==88241==    by 0x499E53B: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib64/libstdc++.so.6.0.29)
-==88241==    by 0x4089A5: Store::displayInventory() const (store.cpp:59)
-==88241==    by 0x4075E9: Inventory::execute(Store*) (inventory.cpp:5)
-==88241==    by 0x408AEE: Store::executeCommand(Command*) (store.cpp:76)
-==88241==    by 0x408271: Read::readCommands(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, Store*, CommandFactory&) (read.cpp:76)
-==88241==    by 0x40B2C4: testStoreFinal() (store_test.cpp:54)
-==88241==    by 0x40B3C7: testAll() (store_test.cpp:63)
-==88241==    by 0x407649: main (main.cpp:13)
-==88241== 
-==88241== Conditional jump or move depends on uninitialised value(s)
-==88241==    at 0x498D50D: ??? (in /usr/lib64/libstdc++.so.6.0.29)
-==88241==    by 0x498EFBC: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib64/libstdc++.so.6.0.29)
-==88241==    by 0x499E53B: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib64/libstdc++.so.6.0.29)
-==88241==    by 0x4089A5: Store::displayInventory() const (store.cpp:59)
-==88241==    by 0x4075E9: Inventory::execute(Store*) (inventory.cpp:5)
-==88241==    by 0x408AEE: Store::executeCommand(Command*) (store.cpp:76)
-==88241==    by 0x408271: Read::readCommands(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, Store*, CommandFactory&) (read.cpp:76)
-==88241==    by 0x40B2C4: testStoreFinal() (store_test.cpp:54)
-==88241==    by 0x40B3C7: testAll() (store_test.cpp:63)
-==88241==    by 0x407649: main (main.cpp:13)
-==88241== 
-==88241== Conditional jump or move depends on uninitialised value(s)
-==88241==    at 0x498EFF2: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib64/libstdc++.so.6.0.29)
-==88241==    by 0x499E53B: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib64/libstdc++.so.6.0.29)
-==88241==    by 0x4089A5: Store::displayInventory() const (store.cpp:59)
-==88241==    by 0x4075E9: Inventory::execute(Store*) (inventory.cpp:5)
-==88241==    by 0x408AEE: Store::executeCommand(Command*) (store.cpp:76)
-==88241==    by 0x408271: Read::readCommands(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, Store*, CommandFactory&) (read.cpp:76)
-==88241==    by 0x40B2C4: testStoreFinal() (store_test.cpp:54)
-==88241==    by 0x40B3C7: testAll() (store_test.cpp:63)
-==88241==    by 0x407649: main (main.cpp:13)
-==88241== 
-==88241== 
-==88241== HEAP SUMMARY:
-==88241==     in use at exit: 4,505 bytes in 47 blocks
-==88241==   total heap usage: 376 allocs, 329 frees, 129,532 bytes allocated
-==88241== 
-==88241== LEAK SUMMARY:
-==88241==    definitely lost: 4,416 bytes in 42 blocks
-==88241==    indirectly lost: 89 bytes in 5 blocks
-==88241==      possibly lost: 0 bytes in 0 blocks
-==88241==    still reachable: 0 bytes in 0 blocks
-==88241==         suppressed: 0 bytes in 0 blocks
-==88241== Rerun with --leak-check=full to see details of leaked memory
-==88241== 
-==88241== Use --track-origins=yes to see where uninitialised values come from
-==88241== For lists of detected and suppressed errors, rerun with: -s
-==88241== ERROR SUMMARY: 264 errors from 8 contexts (suppressed: 0 from 0)
-Tue Jun 10 06:12:12 UTC 2025
+read.cpp: In function ‘void Read::readMovies(const string&, Store*)’:
+read.cpp:33:7: error: expected initializer before ‘std’
+   33 |       std::string director
+      |       ^~~
+read.cpp:36:20: error: ‘stockStr’ was not declared in this scope
+   36 |       getline(iss, stockStr, ',');
+      |                    ^~~~~~~~
+read.cpp:37:20: error: ‘director’ was not declared in this scope
+   37 |       getline(iss, director, ',');
+      |                    ^~~~~~~~
+read.cpp:38:20: error: ‘title’ was not declared in this scope
+   38 |       getline(iss, title, ',');
+      |                    ^~~~~
+read.cpp:39:20: error: ‘yearStr’ was not declared in this scope
+   39 |       getline(iss, yearStr);
+      |                    ^~~~~~~
+cat: valgrind-output.txt: No such file or directory
+Tue Jun 10 06:56:19 UTC 2025
 =====================================================
 To create an output.txt file with all the output from this script
 Run the below command
