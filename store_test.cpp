@@ -5,11 +5,16 @@
  * @date 19 Jan 2019
  */
 
+#include <cassert>
+#include <fstream>
 #include <iostream>
 #include <map>
 #include <sstream>
-#include <fstream>
-#include <cassert>
+
+#include "command.h"
+#include "commandfactory.h"
+#include "store.h"
+#include "read.h"
 
 using namespace std;
 
@@ -18,9 +23,10 @@ void testStore1() {
   // Should do something more, but lets just read files
   // since each implementation will
   string cfile = "testcommands-1.txt";
-  stringstream out;
+
   ifstream fs(cfile);
   assert(fs.is_open());
+  stringstream out;
   char commandType;
   string discard;
   while (fs >> commandType) {
@@ -41,6 +47,12 @@ void testStore2() {
 void testStoreFinal() {
   cout << "=====================================" << endl;
   cout << "Start testStoreFinal" << endl;
+
+  Store store;
+
+  loadStoreData(store, "data4customers.txt", "data4movies.txt", "data4commands.txt");
+
+
   cout << "End testStoreFinal" << endl;
   cout << "=====================================" << endl;
 }
