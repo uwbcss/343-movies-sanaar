@@ -1,64 +1,104 @@
-Tue Jun 10 04:29:06 UTC 2025
+Tue Jun 10 05:05:39 UTC 2025
 Linux LinuxMachine 5.15.167.4-microsoft-standard-WSL2 #1 SMP Tue Nov 5 00:21:55 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux
 uid=1000(cssuwbstudent) gid=1000(cssuwbstudent) groups=1000(cssuwbstudent),10(wheel)
 =====================================================
 1. If the section below is empty, the program compiles 
    without warnings with -Wall -Wextra flags
 =====================================================
-In file included from borrow.cpp:1:
-borrow.h:6:10: fatal error: transaction.h: No such file or directory
-    6 | #include "transaction.h"
-      |          ^~~~~~~~~~~~~~~
+borrow.cpp:3:10: fatal error: store.h: No such file or directory
+    3 | #include "store.h"
+      |          ^~~~~~~~~
 compilation terminated.
-classics.cpp: In member function ‘virtual void Classics::display() const’:
-classics.cpp:10:21: error: ‘setw’ was not declared in this scope; did you mean ‘getw’?
-   10 |     cout << left << setw(8) << setfill(' ') << "stock:" << left << setw(4)
-      |                     ^~~~
-      |                     getw
-classics.cpp:10:32: error: ‘setfill’ was not declared in this scope
-   10 |     cout << left << setw(8) << setfill(' ') << "stock:" << left << setw(4)
-      |                                ^~~~~~~
-In file included from customer.cpp:1:
-customer.h:8:10: fatal error: transaction.h: No such file or directory
-    8 | #include "transaction.h"
-      |          ^~~~~~~~~~~~~~~
+comedy.cpp: In constructor ‘Comedy::Comedy(int, const string&, const string&, int)’:
+comedy.cpp:5:48: error: no matching function for call to ‘Movie::Movie(int&, const string&, const string&, int&)’
+    5 |   : Movie(stock, director, title, yearOfRelease) {
+      |                                                ^
+In file included from comedy.h:4,
+                 from comedy.cpp:1:
+movie.h:13:3: note: candidate: ‘Movie::Movie(const Movie&)’
+   13 |   Movie(const Movie &other);
+      |   ^~~~~
+movie.h:13:3: note:   candidate expects 1 argument, 4 provided
+movie.h:10:3: note: candidate: ‘Movie::Movie()’
+   10 |   Movie();
+      |   ^~~~~
+movie.h:10:3: note:   candidate expects 0 arguments, 4 provided
+In file included from commandfactory.cpp:1:
+commandfactory.h:5:10: fatal error: store.h: No such file or directory
+    5 | #include "store.h"
+      |          ^~~~~~~~~
 compilation terminated.
-drama.cpp: In member function ‘virtual void Drama::setData(std::ifstream&)’:
-drama.cpp:17:15: error: ‘year’ was not declared in this scope
-   17 |     infile >> year;
-      |               ^~~~
 In file included from history.cpp:1:
-history.h:4:10: fatal error: command.h: No such file or directory
-    4 | #include "command.h"
-      |          ^~~~~~~~~~~
-compilation terminated.
-In file included from inventory.h:4,
-                 from inventory.cpp:1:
-hashtable.h:5:10: fatal error: node.h: No such file or directory
-    5 | #include "node.h"
-      |          ^~~~~~~~
-compilation terminated.
-movie.cpp:19:1: error: definition of explicitly-defaulted ‘Movie::~Movie()’
-   19 | Movie::~Movie() {}
-      | ^~~~~
-In file included from movie.cpp:1:
-movie.h:18:11: note: ‘virtual Movie::~Movie()’ explicitly defaulted here
-   18 |   virtual ~Movie() = default;
-      |           ^
-In file included from read.h:6,
-                 from read.cpp:1:
-customer.h:8:10: fatal error: transaction.h: No such file or directory
-    8 | #include "transaction.h"
-      |          ^~~~~~~~~~~~~~~
+history.h:9:16: error: ‘Store’ has not been declared
+    9 |   void execute(Store *store) override;
+      |                ^~~~~
+history.h:9:8: error: ‘void History::execute(int*)’ marked ‘override’, but does not override
+    9 |   void execute(Store *store) override;
+      |        ^~~~~~~
+history.cpp:6:6: error: variable or field ‘execute’ declared void
+    6 | void History::execute(Store* store) {
+      |      ^~~~~~~
+history.cpp:6:23: error: ‘Store’ was not declared in this scope
+    6 | void History::execute(Store* store) {
+      |                       ^~~~~
+history.cpp:6:30: error: ‘store’ was not declared in this scope
+    6 | void History::execute(Store* store) {
+      |                              ^~~~~
+In file included from inventory.cpp:1:
+inventory.h:9:18: error: ‘Store’ has not been declared
+    9 |     void execute(Store* store) override;
+      |                  ^~~~~
+inventory.h:9:10: error: ‘void Inventory::execute(int*)’ marked ‘override’, but does not override
+    9 |     void execute(Store* store) override;
+      |          ^~~~~~~
+inventory.cpp:5:6: error: variable or field ‘execute’ declared void
+    5 | void Inventory::execute(Store* store) {
+      |      ^~~~~~~~~
+inventory.cpp:5:25: error: ‘Store’ was not declared in this scope
+    5 | void Inventory::execute(Store* store) {
+      |                         ^~~~~
+inventory.cpp:5:32: error: ‘store’ was not declared in this scope
+    5 | void Inventory::execute(Store* store) {
+      |                                ^~~~~
+In file included from read.cpp:1:
+read.h:4:10: fatal error: store.h: No such file or directory
+    4 | #include "store.h"
+      |          ^~~~~~~~~
 compilation terminated.
 In file included from return.cpp:1:
-return.h:4:10: fatal error: command.h: No such file or directory
-    4 | #include "command.h"
-      |          ^~~~~~~~~~~
-compilation terminated.
-store_test.cpp:14:10: fatal error: command.h: No such file or directory
-   14 | #include "command.h"
-      |          ^~~~~~~~~~~
+return.h:8:28: error: ‘Movie’ has not been declared
+    8 |     Return(int customerId, Movie* movie);
+      |                            ^~~~~
+return.h:9:18: error: ‘Store’ has not been declared
+    9 |     void execute(Store* store) override;
+      |                  ^~~~~
+return.h:13:5: error: ‘Movie’ does not name a type
+   13 |     Movie* movie;
+      |     ^~~~~
+return.h:9:10: error: ‘void Return::execute(int*)’ marked ‘override’, but does not override
+    9 |     void execute(Store* store) override;
+      |          ^~~~~~~
+return.cpp:3:32: error: ‘Movie’ has not been declared
+    3 | Return::Return(int customerId, Movie *movie)
+      |                                ^~~~~
+return.cpp: In constructor ‘Return::Return(int, int*)’:
+return.cpp:4:31: error: class ‘Return’ does not have any field named ‘movie’
+    4 |     : customerId(customerId), movie(movie) {}
+      |                               ^~~~~
+return.cpp: At global scope:
+return.cpp:6:6: error: variable or field ‘execute’ declared void
+    6 | void Return::execute(Store *store) {
+      |      ^~~~~~
+return.cpp:6:22: error: ‘Store’ was not declared in this scope
+    6 | void Return::execute(Store *store) {
+      |                      ^~~~~
+return.cpp:6:29: error: ‘store’ was not declared in this scope
+    6 | void Return::execute(Store *store) {
+      |                             ^~~~~
+In file included from store_test.cpp:15:
+commandfactory.h:5:10: fatal error: store.h: No such file or directory
+    5 | #include "store.h"
+      |          ^~~~~~~~~
 compilation terminated.
 =====================================================
 2. If the section below is empty or has the expected output 
@@ -69,1447 +109,632 @@ compilation terminated.
 3. If the section below is empty, then there are no clang-tidy warnings 
    (ignore warnings from system headers, such as "13554 warnings generated.")
 =====================================================
-[1/12] Processing file /home/cssuwbstudent/343-movies-sanaar/borrow.cpp.
-14541 warnings and 1 error generated.
+[1/14] Processing file /home/cssuwbstudent/343-movies-sanaar/borrow.cpp.
+18118 warnings and 4 errors generated.
 Error while processing /home/cssuwbstudent/343-movies-sanaar/borrow.cpp.
-[2/12] Processing file /home/cssuwbstudent/343-movies-sanaar/classics.cpp.
-29366 warnings and 21 errors generated.
+[2/14] Processing file /home/cssuwbstudent/343-movies-sanaar/classics.cpp.
+28174 warnings and 4 errors generated.
 Error while processing /home/cssuwbstudent/343-movies-sanaar/classics.cpp.
-[3/12] Processing file /home/cssuwbstudent/343-movies-sanaar/comedy.cpp.
-44197 warnings and 21 errors generated.
+[3/14] Processing file /home/cssuwbstudent/343-movies-sanaar/comedy.cpp.
+38230 warnings and 5 errors generated.
 Error while processing /home/cssuwbstudent/343-movies-sanaar/comedy.cpp.
-[4/12] Processing file /home/cssuwbstudent/343-movies-sanaar/customer.cpp.
-62099 warnings and 22 errors generated.
+[4/14] Processing file /home/cssuwbstudent/343-movies-sanaar/command.cpp.
+52606 warnings and 5 errors generated.
+Error while processing /home/cssuwbstudent/343-movies-sanaar/command.cpp.
+[5/14] Processing file /home/cssuwbstudent/343-movies-sanaar/commandfactory.cpp.
+70880 warnings and 6 errors generated.
+Error while processing /home/cssuwbstudent/343-movies-sanaar/commandfactory.cpp.
+[6/14] Processing file /home/cssuwbstudent/343-movies-sanaar/customer.cpp.
+86162 warnings and 6 errors generated.
 Error while processing /home/cssuwbstudent/343-movies-sanaar/customer.cpp.
-[5/12] Processing file /home/cssuwbstudent/343-movies-sanaar/drama.cpp.
-76930 warnings and 23 errors generated.
+[7/14] Processing file /home/cssuwbstudent/343-movies-sanaar/drama.cpp.
+96218 warnings and 6 errors generated.
 Error while processing /home/cssuwbstudent/343-movies-sanaar/drama.cpp.
-[6/12] Processing file /home/cssuwbstudent/343-movies-sanaar/history.cpp.
-76931 warnings and 24 errors generated.
+[8/14] Processing file /home/cssuwbstudent/343-movies-sanaar/history.cpp.
+110595 warnings and 8 errors generated.
 Error while processing /home/cssuwbstudent/343-movies-sanaar/history.cpp.
-[7/12] Processing file /home/cssuwbstudent/343-movies-sanaar/inventory.cpp.
-92488 warnings and 25 errors generated.
+[9/14] Processing file /home/cssuwbstudent/343-movies-sanaar/inventory.cpp.
+124973 warnings and 10 errors generated.
 Error while processing /home/cssuwbstudent/343-movies-sanaar/inventory.cpp.
-[8/12] Processing file /home/cssuwbstudent/343-movies-sanaar/main.cpp.
-106291 warnings and 25 errors generated.
+[10/14] Processing file /home/cssuwbstudent/343-movies-sanaar/main.cpp.
+138776 warnings and 10 errors generated.
 Error while processing /home/cssuwbstudent/343-movies-sanaar/main.cpp.
-[9/12] Processing file /home/cssuwbstudent/343-movies-sanaar/movie.cpp.
-120370 warnings and 26 errors generated.
+[11/14] Processing file /home/cssuwbstudent/343-movies-sanaar/movie.cpp.
+148832 warnings and 10 errors generated.
 Error while processing /home/cssuwbstudent/343-movies-sanaar/movie.cpp.
-[10/12] Processing file /home/cssuwbstudent/343-movies-sanaar/read.cpp.
-141648 warnings and 27 errors generated.
+[12/14] Processing file /home/cssuwbstudent/343-movies-sanaar/read.cpp.
+167257 warnings and 11 errors generated.
 Error while processing /home/cssuwbstudent/343-movies-sanaar/read.cpp.
-[11/12] Processing file /home/cssuwbstudent/343-movies-sanaar/return.cpp.
-141648 warnings and 28 errors generated.
+[13/14] Processing file /home/cssuwbstudent/343-movies-sanaar/return.cpp.
+181633 warnings and 30 errors generated.
 Error while processing /home/cssuwbstudent/343-movies-sanaar/return.cpp.
-[12/12] Processing file /home/cssuwbstudent/343-movies-sanaar/store_test.cpp.
-164642 warnings and 29 errors generated.
+[14/14] Processing file /home/cssuwbstudent/343-movies-sanaar/store_test.cpp.
+202355 warnings and 31 errors generated.
 Error while processing /home/cssuwbstudent/343-movies-sanaar/store_test.cpp.
-error: too many errors emitted, stopping now [clang-diagnostic-error]
-/home/cssuwbstudent/343-movies-sanaar/borrow.cpp:13:14: error: method 'process' can be made static [readability-convert-member-functions-to-static,-warnings-as-errors]
-   13 | bool Borrow::process(string media, Movie* movie, Customer* customer) {
-      |              ^
-      | static 
-/home/cssuwbstudent/343-movies-sanaar/borrow.cpp:13:43: error: pointer parameter 'movie' can be pointer to const [readability-non-const-parameter,-warnings-as-errors]
-   13 | bool Borrow::process(string media, Movie* movie, Customer* customer) {
-      |                                           ^
-      |                                    const 
-/home/cssuwbstudent/343-movies-sanaar/borrow.cpp:21:11: error: do not use 'else' after 'return' [llvm-else-after-return,readability-else-after-return,-warnings-as-errors]
-   21 |         } else {
-      |           ^~~~~~
-   22 |             movie->decreaseStock();
-      |             ~~~~~~~~~~~~~~~~~~~~~~~
-   23 |         }
-      |         ~
-/home/cssuwbstudent/343-movies-sanaar/borrow.cpp:28:22: error: method 'create' can be made static [readability-convert-member-functions-to-static,-warnings-as-errors]
-   28 | Transaction* Borrow::create() {
-      |                      ^
-      | static 
-/home/cssuwbstudent/343-movies-sanaar/borrow.h:4:1: error: #includes are not sorted properly [llvm-include-order,-warnings-as-errors]
-    4 | #include <fstream>
-      | ^        ~~~~~~~~~
-      |          "transaction.h"
-    5 | #include <iostream>
-      |          ~~~~~~~~~~
-      |          <fstream>
-    6 | #include "transaction.h"
-      |          ~~~~~~~~~~~~~~~
-      |          <iostream>
-/home/cssuwbstudent/343-movies-sanaar/borrow.h:6:10: error: 'transaction.h' file not found [clang-diagnostic-error]
-    6 | #include "transaction.h"
-      |          ^~~~~~~~~~~~~~~
-/home/cssuwbstudent/343-movies-sanaar/classics.cpp:5:24: error: initializer for base class 'Movie' is redundant [readability-redundant-member-init,-warnings-as-errors]
-    5 | Classics::Classics() : Movie() {}
-      |                        ^~~~~~~
-/home/cssuwbstudent/343-movies-sanaar/classics.cpp:10:21: error: use of undeclared identifier 'setw'; did you mean 'getw'? [clang-diagnostic-error]
-   10 |     cout << left << setw(8) << setfill(' ') << "stock:" << left << setw(4)
-      |                     ^~~~
-      |                     getw
-/usr/include/stdio.h:575:12: note: 'getw' declared here
-  575 | extern int getw (FILE *__stream);
-      |            ^
-/home/cssuwbstudent/343-movies-sanaar/classics.cpp:10:26: error: cannot initialize a parameter of type 'FILE *' (aka '_IO_FILE *') with an rvalue of type 'int' [clang-diagnostic-error]
-   10 |     cout << left << setw(8) << setfill(' ') << "stock:" << left << setw(4)
-      |                          ^
-/usr/include/stdio.h:575:24: note: passing argument to parameter '__stream' here
-  575 | extern int getw (FILE *__stream);
-      |                        ^
-/home/cssuwbstudent/343-movies-sanaar/classics.cpp:10:32: error: use of undeclared identifier 'setfill' [clang-diagnostic-error]
-   10 |     cout << left << setw(8) << setfill(' ') << "stock:" << left << setw(4)
-      |                                ^
-/home/cssuwbstudent/343-movies-sanaar/classics.cpp:10:68: error: use of undeclared identifier 'setw'; did you mean 'getw'? [clang-diagnostic-error]
-   10 |     cout << left << setw(8) << setfill(' ') << "stock:" << left << setw(4)
-      |                                                                    ^~~~
-      |                                                                    getw
-/usr/include/stdio.h:575:12: note: 'getw' declared here
-  575 | extern int getw (FILE *__stream);
-      |            ^
-/home/cssuwbstudent/343-movies-sanaar/classics.cpp:10:73: error: cannot initialize a parameter of type 'FILE *' (aka '_IO_FILE *') with an rvalue of type 'int' [clang-diagnostic-error]
-   10 |     cout << left << setw(8) << setfill(' ') << "stock:" << left << setw(4)
-      |                                                                         ^
-/usr/include/stdio.h:575:24: note: passing argument to parameter '__stream' here
-  575 | extern int getw (FILE *__stream);
-      |                        ^
-/home/cssuwbstudent/343-movies-sanaar/classics.cpp:11:13: error: use of undeclared identifier 'setfill' [clang-diagnostic-error]
-   11 |          << setfill(' ') << stock;
-      |             ^
-/home/cssuwbstudent/343-movies-sanaar/classics.cpp:12:21: error: use of undeclared identifier 'setw'; did you mean 'getw'? [clang-diagnostic-error]
-   12 |     cout << left << setw(11) << setfill(' ') << "director: " << left
-      |                     ^~~~
-      |                     getw
-/usr/include/stdio.h:575:12: note: 'getw' declared here
-  575 | extern int getw (FILE *__stream);
-      |            ^
-/home/cssuwbstudent/343-movies-sanaar/classics.cpp:12:26: error: cannot initialize a parameter of type 'FILE *' (aka '_IO_FILE *') with an rvalue of type 'int' [clang-diagnostic-error]
-   12 |     cout << left << setw(11) << setfill(' ') << "director: " << left
-      |                          ^~
-/usr/include/stdio.h:575:24: note: passing argument to parameter '__stream' here
-  575 | extern int getw (FILE *__stream);
-      |                        ^
-/home/cssuwbstudent/343-movies-sanaar/classics.cpp:12:33: error: use of undeclared identifier 'setfill' [clang-diagnostic-error]
-   12 |     cout << left << setw(11) << setfill(' ') << "director: " << left
-      |                                 ^
-/home/cssuwbstudent/343-movies-sanaar/classics.cpp:13:13: error: use of undeclared identifier 'setw'; did you mean 'getw'? [clang-diagnostic-error]
-   13 |          << setw(20) << setfill(' ') << director;
-      |             ^~~~
-      |             getw
-/usr/include/stdio.h:575:12: note: 'getw' declared here
-  575 | extern int getw (FILE *__stream);
-      |            ^
-/home/cssuwbstudent/343-movies-sanaar/classics.cpp:13:18: error: cannot initialize a parameter of type 'FILE *' (aka '_IO_FILE *') with an rvalue of type 'int' [clang-diagnostic-error]
-   13 |          << setw(20) << setfill(' ') << director;
-      |                  ^~
-/usr/include/stdio.h:575:24: note: passing argument to parameter '__stream' here
-  575 | extern int getw (FILE *__stream);
-      |                        ^
-/home/cssuwbstudent/343-movies-sanaar/classics.cpp:13:25: error: use of undeclared identifier 'setfill' [clang-diagnostic-error]
-   13 |          << setw(20) << setfill(' ') << director;
-      |                         ^
-/home/cssuwbstudent/343-movies-sanaar/classics.cpp:14:21: error: use of undeclared identifier 'setw'; did you mean 'getw'? [clang-diagnostic-error]
-   14 |     cout << left << setw(8) << setfill(' ') << "title: " << left
-      |                     ^~~~
-      |                     getw
-/usr/include/stdio.h:575:12: note: 'getw' declared here
-  575 | extern int getw (FILE *__stream);
-      |            ^
-/home/cssuwbstudent/343-movies-sanaar/classics.cpp:14:26: error: cannot initialize a parameter of type 'FILE *' (aka '_IO_FILE *') with an rvalue of type 'int' [clang-diagnostic-error]
-   14 |     cout << left << setw(8) << setfill(' ') << "title: " << left
-      |                          ^
-/usr/include/stdio.h:575:24: note: passing argument to parameter '__stream' here
-  575 | extern int getw (FILE *__stream);
-      |                        ^
-/home/cssuwbstudent/343-movies-sanaar/classics.cpp:14:32: error: use of undeclared identifier 'setfill' [clang-diagnostic-error]
-   14 |     cout << left << setw(8) << setfill(' ') << "title: " << left
-      |                                ^
-/home/cssuwbstudent/343-movies-sanaar/classics.cpp:15:13: error: use of undeclared identifier 'setw'; did you mean 'getw'? [clang-diagnostic-error]
-   15 |          << setw(35) << setfill(' ') << title;
-      |             ^~~~
-      |             getw
-/usr/include/stdio.h:575:12: note: 'getw' declared here
-  575 | extern int getw (FILE *__stream);
-      |            ^
-/home/cssuwbstudent/343-movies-sanaar/classics.cpp:15:18: error: cannot initialize a parameter of type 'FILE *' (aka '_IO_FILE *') with an rvalue of type 'int' [clang-diagnostic-error]
-   15 |          << setw(35) << setfill(' ') << title;
-      |                  ^~
-/usr/include/stdio.h:575:24: note: passing argument to parameter '__stream' here
-  575 | extern int getw (FILE *__stream);
-      |                        ^
-/home/cssuwbstudent/343-movies-sanaar/classics.cpp:15:25: error: use of undeclared identifier 'setfill' [clang-diagnostic-error]
-   15 |          << setw(35) << setfill(' ') << title;
-      |                         ^
-/home/cssuwbstudent/343-movies-sanaar/classics.cpp:16:21: error: use of undeclared identifier 'setw'; did you mean 'getw'? [clang-diagnostic-error]
-   16 |     cout << left << setw(6) << setfill(' ') <<  "year:" << yearOfRelease << "  ";
-      |                     ^~~~
-      |                     getw
-/usr/include/stdio.h:575:12: note: 'getw' declared here
-  575 | extern int getw (FILE *__stream);
-      |            ^
-/home/cssuwbstudent/343-movies-sanaar/classics.cpp:47:53: error: repeated branch body in conditional chain [bugprone-branch-clone,-warnings-as-errors]
-   47 |     if (yearOfRelease < classicMovie.yearOfRelease) {
-      |                                                     ^
-/home/cssuwbstudent/343-movies-sanaar/classics.cpp:49:6: note: end of the original
-   49 |     } else if (yearOfRelease == classicMovie.yearOfRelease && actorFName <
-      |      ^
-/home/cssuwbstudent/343-movies-sanaar/classics.cpp:50:41: note: clone 1 starts here
-   50 |                classicMovie.actorFName) {
-      |                                         ^
-/home/cssuwbstudent/343-movies-sanaar/classics.cpp:53:41: note: clone 2 starts here
-   53 |                classicMovie.actorLName) {
-      |                                         ^
-/home/cssuwbstudent/343-movies-sanaar/classics.cpp:49:7: error: do not use 'else' after 'return' [llvm-else-after-return,readability-else-after-return,-warnings-as-errors]
-   49 |     } else if (yearOfRelease == classicMovie.yearOfRelease && actorFName <
-      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   50 |                classicMovie.actorFName) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~~~~~
-   51 |         return true;
-      |         ~~~~~~~~~~~~
-   52 |     } else if (actorFName == classicMovie.actorFName && actorLName <
-      |     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   53 |                classicMovie.actorLName) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~~~~~
-   54 |         return true;
-      |         ~~~~~~~~~~~~
-   55 |     } else {
-      |     ~~~~~~~~
-   56 |         return false;
-      |         ~~~~~~~~~~~~~
-   57 |     }
-      |     ~
-/home/cssuwbstudent/343-movies-sanaar/classics.cpp:62:53: error: repeated branch body in conditional chain [bugprone-branch-clone,-warnings-as-errors]
-   62 |     if (yearOfRelease > classicMovie.yearOfRelease) {
-      |                                                     ^
-/home/cssuwbstudent/343-movies-sanaar/classics.cpp:64:6: note: end of the original
-   64 |     } else if (yearOfRelease == classicMovie.yearOfRelease && actorFName >
-      |      ^
-/home/cssuwbstudent/343-movies-sanaar/classics.cpp:65:41: note: clone 1 starts here
-   65 |                classicMovie.actorFName) {
-      |                                         ^
-/home/cssuwbstudent/343-movies-sanaar/classics.cpp:68:40: note: clone 2 starts here
-   68 |                classicMovie.actorLName){
-      |                                        ^
-/home/cssuwbstudent/343-movies-sanaar/classics.cpp:64:7: error: do not use 'else' after 'return' [llvm-else-after-return,readability-else-after-return,-warnings-as-errors]
-   64 |     } else if (yearOfRelease == classicMovie.yearOfRelease && actorFName >
-      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   65 |                classicMovie.actorFName) {
-      |                ~~~~~~~~~~~~~~~~~~~~~~~~~~
-   66 |         return true;
-      |         ~~~~~~~~~~~~
-   67 |     } else if (actorFName == classicMovie.actorFName && actorLName >
-      |     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   68 |                classicMovie.actorLName){
-      |                ~~~~~~~~~~~~~~~~~~~~~~~~~
-   69 |         return true;
-      |         ~~~~~~~~~~~~
-   70 |     } else {
-      |     ~~~~~~~~
-   71 |         return false;
-      |         ~~~~~~~~~~~~~
-   72 |     }
-      |     ~
-/home/cssuwbstudent/343-movies-sanaar/classics.h:4:1: error: #includes are not sorted properly [llvm-include-order,-warnings-as-errors]
-    4 | #include <fstream>
-      | ^        ~~~~~~~~~
-      |          "movie.h"
-    5 | #include <iostream>
-      |          ~~~~~~~~~~
-      |          <fstream>
-    6 | #include "movie.h"
-      |          ~~~~~~~~~
-      |          <iostream>
-/home/cssuwbstudent/343-movies-sanaar/classics.h:17:33: error: all parameters should be named in a function [readability-named-parameter,-warnings-as-errors]
-   17 |   virtual void setData(ifstream&);     // sets data members
-      |                                 ^
-      |                                  /*infile*/
-/home/cssuwbstudent/343-movies-sanaar/classics.h:18:37: error: all parameters should be named in a function [readability-named-parameter,-warnings-as-errors]
-   18 |   virtual void setTempData(ifstream&); // sets data to process Transaction
-      |                                     ^
-      |                                      /*infile*/
-/home/cssuwbstudent/343-movies-sanaar/classics.h:21:38: error: all parameters should be named in a function [readability-named-parameter,-warnings-as-errors]
-   21 |   virtual bool operator>(const Movie&) const;
-      |                                      ^
-      |                                       /*other*/
-/home/cssuwbstudent/343-movies-sanaar/classics.h:22:38: error: all parameters should be named in a function [readability-named-parameter,-warnings-as-errors]
-   22 |   virtual bool operator<(const Movie&) const;
-      |                                      ^
-      |                                       /*other*/
-/home/cssuwbstudent/343-movies-sanaar/classics.h:23:39: error: all parameters should be named in a function [readability-named-parameter,-warnings-as-errors]
-   23 |   virtual bool operator==(const Movie&) const;
-      |                                       ^
-      |                                        /*other*/
-/home/cssuwbstudent/343-movies-sanaar/classics.h:24:39: error: all parameters should be named in a function [readability-named-parameter,-warnings-as-errors]
-   24 |   virtual bool operator!=(const Movie&) const;
-      |                                       ^
-      |                                        /*other*/
-/home/cssuwbstudent/343-movies-sanaar/comedy.cpp:4:20: error: initializer for base class 'Movie' is redundant [readability-redundant-member-init,-warnings-as-errors]
-    4 | Comedy::Comedy() : Movie() {}
-      |                    ^~~~~~~
-/home/cssuwbstudent/343-movies-sanaar/comedy.cpp:29:36: error: repeated branch body in conditional chain [bugprone-branch-clone,-warnings-as-errors]
-   29 |     if (title < comedyMovie.title) {
-      |                                    ^
-/home/cssuwbstudent/343-movies-sanaar/comedy.cpp:31:6: note: end of the original
-   31 |     } else if (title == comedyMovie.title && yearOfRelease < comedyMovie.yearOfRelease) {
-      |      ^
-/home/cssuwbstudent/343-movies-sanaar/comedy.cpp:31:89: note: clone 1 starts here
-   31 |     } else if (title == comedyMovie.title && yearOfRelease < comedyMovie.yearOfRelease) {
-      |                                                                                         ^
-/home/cssuwbstudent/343-movies-sanaar/comedy.cpp:31:7: error: do not use 'else' after 'return' [llvm-else-after-return,readability-else-after-return,-warnings-as-errors]
-   31 |     } else if (title == comedyMovie.title && yearOfRelease < comedyMovie.yearOfRelease) {
-      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   32 |         return true;
-      |         ~~~~~~~~~~~~
-   33 |     } else {
-      |     ~~~~~~~~
-   34 |         return false;
-      |         ~~~~~~~~~~~~~
-   35 |     }
-      |     ~
-/home/cssuwbstudent/343-movies-sanaar/comedy.cpp:40:36: error: repeated branch body in conditional chain [bugprone-branch-clone,-warnings-as-errors]
-   40 |     if (title > comedyMovie.title) {
-      |                                    ^
-/home/cssuwbstudent/343-movies-sanaar/comedy.cpp:42:6: note: end of the original
-   42 |     } else if (title == comedyMovie.title && yearOfRelease > comedyMovie.yearOfRelease) {
-      |      ^
-/home/cssuwbstudent/343-movies-sanaar/comedy.cpp:42:89: note: clone 1 starts here
-   42 |     } else if (title == comedyMovie.title && yearOfRelease > comedyMovie.yearOfRelease) {
-      |                                                                                         ^
-/home/cssuwbstudent/343-movies-sanaar/comedy.cpp:42:7: error: do not use 'else' after 'return' [llvm-else-after-return,readability-else-after-return,-warnings-as-errors]
-   42 |     } else if (title == comedyMovie.title && yearOfRelease > comedyMovie.yearOfRelease) {
-      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   43 |         return true;
-      |         ~~~~~~~~~~~~
-   44 |     } else {
-      |     ~~~~~~~~
-   45 |         return false;
-      |         ~~~~~~~~~~~~~
-   46 |     }
-      |     ~
-/home/cssuwbstudent/343-movies-sanaar/comedy.h:4:1: error: #includes are not sorted properly [llvm-include-order,-warnings-as-errors]
-    4 | #include <fstream>
-      | ^        ~~~~~~~~~
-      |          "movie.h"
-    5 | #include <iostream>
-      |          ~~~~~~~~~~
-      |          <fstream>
-    6 | #include "movie.h"
-      |          ~~~~~~~~~
-      |          <iostream>
-/home/cssuwbstudent/343-movies-sanaar/comedy.h:15:35: error: all parameters should be named in a function [readability-named-parameter,-warnings-as-errors]
-   15 |     virtual void setData(ifstream&);     // sets data members
-      |                                   ^
-      |                                    /*infile*/
-/home/cssuwbstudent/343-movies-sanaar/comedy.h:16:39: error: all parameters should be named in a function [readability-named-parameter,-warnings-as-errors]
-   16 |     virtual void setTempData(ifstream&); // sets data to process Transaction
-      |                                       ^
-      |                                        /*infile*/
-/home/cssuwbstudent/343-movies-sanaar/comedy.h:20:40: error: all parameters should be named in a function [readability-named-parameter,-warnings-as-errors]
-   20 |     virtual bool operator>(const Movie&) const;
-      |                                        ^
-      |                                         /*other*/
-/home/cssuwbstudent/343-movies-sanaar/comedy.h:21:40: error: all parameters should be named in a function [readability-named-parameter,-warnings-as-errors]
-   21 |     virtual bool operator<(const Movie&) const;
-      |                                        ^
-      |                                         /*other*/
-/home/cssuwbstudent/343-movies-sanaar/comedy.h:22:41: error: all parameters should be named in a function [readability-named-parameter,-warnings-as-errors]
-   22 |     virtual bool operator==(const Movie&) const;
-      |                                         ^
-      |                                          /*other*/
-/home/cssuwbstudent/343-movies-sanaar/comedy.h:23:41: error: all parameters should be named in a function [readability-named-parameter,-warnings-as-errors]
-   23 |     virtual bool operator!=(const Movie&) const;
-      |                                         ^
-      |                                          /*other*/
-/home/cssuwbstudent/343-movies-sanaar/customer.h:4:1: error: #includes are not sorted properly [llvm-include-order,-warnings-as-errors]
-    4 | #include <iostream>
+/home/cssuwbstudent/343-movies-sanaar/borrow.cpp:1:1: error: #includes are not sorted properly [llvm-include-order,-warnings-as-errors]
+    1 | #include <iostream>
       | ^        ~~~~~~~~~~
-      |          "transaction.h"
-    5 | #include <fstream>
-    6 | #include <vector> 
-      |          ~~~~~~~~
-      |          <iomanip>
-    7 | #include <iomanip>
-      |          ~~~~~~~~~
-      |          <iostream>
-    8 | #include "transaction.h"
-      |          ~~~~~~~~~~~~~~~
-      |          <vector> 
-/home/cssuwbstudent/343-movies-sanaar/customer.h:8:10: error: 'transaction.h' file not found [clang-diagnostic-error]
-    8 | #include "transaction.h"
-      |          ^~~~~~~~~~~~~~~
-/home/cssuwbstudent/343-movies-sanaar/customer.h:16:5: error: single-argument constructors must be marked explicit to avoid unintentional implicit conversions [google-explicit-constructor,-warnings-as-errors]
-   16 |     Customer(ifstream&);
-      |     ^
-      |     explicit 
-/home/cssuwbstudent/343-movies-sanaar/customer.h:16:23: error: all parameters should be named in a function [readability-named-parameter,-warnings-as-errors]
-   16 |     Customer(ifstream&);
-      |                       ^
-      |                        /*infile*/
-/home/cssuwbstudent/343-movies-sanaar/customer.h:32:36: error: all parameters should be named in a function [readability-named-parameter,-warnings-as-errors]
-   32 |     bool operator==(const Customer&) const;
-      |                                    ^
-      |                                     /*other*/
-/home/cssuwbstudent/343-movies-sanaar/customer.h:33:36: error: all parameters should be named in a function [readability-named-parameter,-warnings-as-errors]
-   33 |     bool operator!=(const Customer&) const;
-      |                                    ^
-      |                                     /*other*/
-/home/cssuwbstudent/343-movies-sanaar/drama.cpp:3:18: error: initializer for base class 'Movie' is redundant [readability-redundant-member-init,-warnings-as-errors]
-    3 | Drama::Drama() : Movie() { }
-      |                  ^~~~~~~
-/home/cssuwbstudent/343-movies-sanaar/drama.cpp:17:15: error: use of undeclared identifier 'year' [clang-diagnostic-error]
-   17 |     infile >> year;
-      |               ^
-/home/cssuwbstudent/343-movies-sanaar/drama.cpp:29:41: error: repeated branch body in conditional chain [bugprone-branch-clone,-warnings-as-errors]
-   29 |     if (director < dramaMovie.director) {
-      |                                         ^
-/home/cssuwbstudent/343-movies-sanaar/drama.cpp:31:6: note: end of the original
-   31 |     } else if (director == dramaMovie.director && title < dramaMovie.title) {
-      |      ^
-/home/cssuwbstudent/343-movies-sanaar/drama.cpp:31:77: note: clone 1 starts here
-   31 |     } else if (director == dramaMovie.director && title < dramaMovie.title) {
-      |                                                                             ^
-/home/cssuwbstudent/343-movies-sanaar/drama.cpp:31:7: error: do not use 'else' after 'return' [llvm-else-after-return,readability-else-after-return,-warnings-as-errors]
-   31 |     } else if (director == dramaMovie.director && title < dramaMovie.title) {
-      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   32 |         return true;
-      |         ~~~~~~~~~~~~
-   33 |     } else {
-      |     ~~~~~~~~
-   34 |         return false;
-      |         ~~~~~~~~~~~~~
-   35 |     }
-      |     ~
-/home/cssuwbstudent/343-movies-sanaar/drama.cpp:40:41: error: repeated branch body in conditional chain [bugprone-branch-clone,-warnings-as-errors]
-   40 |     if (director > dramaMovie.director) {
-      |                                         ^
-/home/cssuwbstudent/343-movies-sanaar/drama.cpp:42:6: note: end of the original
-   42 |     } else if (director == dramaMovie.director && title > dramaMovie.title) {
-      |      ^
-/home/cssuwbstudent/343-movies-sanaar/drama.cpp:42:77: note: clone 1 starts here
-   42 |     } else if (director == dramaMovie.director && title > dramaMovie.title) {
-      |                                                                             ^
-/home/cssuwbstudent/343-movies-sanaar/drama.cpp:42:7: error: do not use 'else' after 'return' [llvm-else-after-return,readability-else-after-return,-warnings-as-errors]
-   42 |     } else if (director == dramaMovie.director && title > dramaMovie.title) {
-      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   43 |         return true;
-      |         ~~~~~~~~~~~~
-   44 |     } else {
-      |     ~~~~~~~~
-   45 |         return false;
-      |         ~~~~~~~~~~~~~
-   46 |     }
-      |     ~
-/home/cssuwbstudent/343-movies-sanaar/drama.h:4:1: error: #includes are not sorted properly [llvm-include-order,-warnings-as-errors]
-    4 | #include <fstream>
-      | ^        ~~~~~~~~~
-      |          "movie.h"
-    5 | #include <iostream>
+      |          "borrow.h"
+    2 | #include "borrow.h"
       |          ~~~~~~~~~~
-      |          <fstream>
-    6 | #include "movie.h"
+      |          "customer.h"
+    3 | #include "store.h"
+      |          ~~~~~~~~~
+      |          "movie.h"
+    4 | #include "customer.h"
+      |          ~~~~~~~~~~~~
+      |          "store.h"
+    5 | #include "movie.h"
       |          ~~~~~~~~~
       |          <iostream>
-/home/cssuwbstudent/343-movies-sanaar/drama.h:15:35: error: all parameters should be named in a function [readability-named-parameter,-warnings-as-errors]
-   15 |     virtual void setData(ifstream&);     // sets data members
-      |                                   ^
-      |                                    /*infile*/
-/home/cssuwbstudent/343-movies-sanaar/drama.h:16:39: error: all parameters should be named in a function [readability-named-parameter,-warnings-as-errors]
-   16 |     virtual void setTempData(ifstream&); // sets data to process Transaction
-      |                                       ^
-      |                                        /*infile*/
-/home/cssuwbstudent/343-movies-sanaar/drama.h:19:40: error: all parameters should be named in a function [readability-named-parameter,-warnings-as-errors]
-   19 |     virtual bool operator>(const Movie&) const;
-      |                                        ^
-      |                                         /*other*/
-/home/cssuwbstudent/343-movies-sanaar/drama.h:20:40: error: all parameters should be named in a function [readability-named-parameter,-warnings-as-errors]
-   20 |     virtual bool operator<(const Movie&) const;
-      |                                        ^
-      |                                         /*other*/
-/home/cssuwbstudent/343-movies-sanaar/drama.h:21:41: error: all parameters should be named in a function [readability-named-parameter,-warnings-as-errors]
-   21 |     virtual bool operator==(const Movie&) const;
-      |                                         ^
-      |                                          /*other*/
-/home/cssuwbstudent/343-movies-sanaar/drama.h:22:41: error: all parameters should be named in a function [readability-named-parameter,-warnings-as-errors]
-   22 |     virtual bool operator!=(const Movie&) const;
-      |                                         ^
-      |                                          /*other*/
-/home/cssuwbstudent/343-movies-sanaar/hashtable.h:5:10: error: 'node.h' file not found [clang-diagnostic-error]
-    5 | #include "node.h"
-      |          ^~~~~~~~
-/home/cssuwbstudent/343-movies-sanaar/hashtable.h:52:17: error: statement should be inside braces [google-readability-braces-around-statements,readability-braces-around-statements,-warnings-as-errors]
-   52 |       if (!prev)
-      |                 ^
-      |                  {
-   53 |         table[idx] = curr;
-   54 |       else
-      |       } 
-/home/cssuwbstudent/343-movies-sanaar/hashtable.h:54:11: error: statement should be inside braces [google-readability-braces-around-statements,readability-braces-around-statements,-warnings-as-errors]
-   54 |       else
-      |           ^
-      |            {
-   55 |         prev->next = curr;
-      |                           
-/home/cssuwbstudent/343-movies-sanaar/hashtable.h:81:19: error: statement should be inside braces [google-readability-braces-around-statements,readability-braces-around-statements,-warnings-as-errors]
-   81 |         if (!prev)
-      |                   ^
-      |                    {
-   82 |           table[idx] = curr->next;
-   83 |         else
-      |         } 
-/home/cssuwbstudent/343-movies-sanaar/hashtable.h:83:13: error: statement should be inside braces [google-readability-braces-around-statements,readability-braces-around-statements,-warnings-as-errors]
-   83 |         else
-      |             ^
-      |              {
-   84 |           prev->next = curr->next;
-      |                                   
-/home/cssuwbstudent/343-movies-sanaar/history.cpp:5:30: error: pointer parameter 'store' can be pointer to const [readability-non-const-parameter,-warnings-as-errors]
-    5 | void History::execute(Store *store) {
+/home/cssuwbstudent/343-movies-sanaar/borrow.cpp:3:10: error: 'store.h' file not found [clang-diagnostic-error]
+    3 | #include "store.h"
+      |          ^~~~~~~~~
+/home/cssuwbstudent/343-movies-sanaar/borrow.h:8:28: error: unknown type name 'Movie' [clang-diagnostic-error]
+    8 |     Borrow(int customerId, Movie* movie);
+      |                            ^
+/home/cssuwbstudent/343-movies-sanaar/borrow.h:9:18: error: unknown type name 'Store' [clang-diagnostic-error]
+    9 |     void execute(Store* store) override;
+      |                  ^
+/home/cssuwbstudent/343-movies-sanaar/borrow.h:13:5: error: unknown type name 'Movie' [clang-diagnostic-error]
+   13 |     Movie* movie;
+      |     ^
+/home/cssuwbstudent/343-movies-sanaar/comedy.cpp:5:5: error: no matching constructor for initialization of 'Movie' [clang-diagnostic-error]
+    5 |   : Movie(stock, director, title, yearOfRelease) {
+      |     ^     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/cssuwbstudent/343-movies-sanaar/movie.h:13:3: note: candidate constructor not viable: requires single argument 'other', but 4 arguments were provided
+   13 |   Movie(const Movie &other);
+      |   ^     ~~~~~~~~~~~~~~~~~~
+/home/cssuwbstudent/343-movies-sanaar/movie.h:10:3: note: candidate constructor not viable: requires 0 arguments, but 4 were provided
+   10 |   Movie();
+      |   ^
+/home/cssuwbstudent/343-movies-sanaar/commandfactory.cpp:16:26: error: method 'createCommand' can be made static [readability-convert-member-functions-to-static,-warnings-as-errors]
+   16 | Command *CommandFactory::createCommand(const string &line) {
+      |                          ^
+      | static 
+/home/cssuwbstudent/343-movies-sanaar/commandfactory.h:5:10: error: 'store.h' file not found [clang-diagnostic-error]
+    5 | #include "store.h"
+      |          ^~~~~~~~~
+/home/cssuwbstudent/343-movies-sanaar/history.cpp:6:23: error: unknown type name 'Store' [clang-diagnostic-error]
+    6 | void History::execute(Store* store) {
+      |                       ^
+/home/cssuwbstudent/343-movies-sanaar/history.cpp:6:30: error: pointer parameter 'store' can be pointer to const [readability-non-const-parameter,-warnings-as-errors]
+    6 | void History::execute(Store* store) {
       |                              ^
       |                       const 
-/home/cssuwbstudent/343-movies-sanaar/history.h:4:10: error: 'command.h' file not found [clang-diagnostic-error]
-    4 | #include "command.h"
-      |          ^~~~~~~~~~~
-/home/cssuwbstudent/343-movies-sanaar/inventory.cpp:18:17: error: implicit conversion 'Movie *' -> 'bool' [readability-implicit-bool-conversion,-warnings-as-errors]
-   18 |             if (sortedMovies[i][j]) {
-      |                 ^                 
-      |                                    != nullptr
-/home/cssuwbstudent/343-movies-sanaar/inventory.cpp:26:9: error: implicit conversion 'Movie *' -> 'bool' [readability-implicit-bool-conversion,-warnings-as-errors]
-   26 |     if (movie)  {
-      |         ^    
-      |               != nullptr
-/home/cssuwbstudent/343-movies-sanaar/inventory.cpp:32:19: error: method 'find' can be made static [readability-convert-member-functions-to-static,-warnings-as-errors]
-   32 | Movie* Inventory::find(string key)  {
-      |                   ^
-/home/cssuwbstudent/343-movies-sanaar/inventory.cpp:38:16: error: method 'idx' can be made static [readability-convert-member-functions-to-static,-warnings-as-errors]
-   38 | int Inventory::idx(Movie* movie)    {
+/home/cssuwbstudent/343-movies-sanaar/history.h:9:16: error: unknown type name 'Store' [clang-diagnostic-error]
+    9 |   void execute(Store *store) override;
       |                ^
-/home/cssuwbstudent/343-movies-sanaar/inventory.cpp:40:21: error: statement should be inside braces [google-readability-braces-around-statements,readability-braces-around-statements,-warnings-as-errors]
-   40 |     if (type == 'F')
-      |                     ^
-      |                      {
-   41 |         return 0;
-      |                  
-/home/cssuwbstudent/343-movies-sanaar/inventory.cpp:42:21: error: statement should be inside braces [google-readability-braces-around-statements,readability-braces-around-statements,-warnings-as-errors]
-   42 |     if (type == 'D')
-      |                     ^
-      |                      {
-   43 |         return 1;
-      |                  
-/home/cssuwbstudent/343-movies-sanaar/inventory.cpp:44:21: error: statement should be inside braces [google-readability-braces-around-statements,readability-braces-around-statements,-warnings-as-errors]
-   44 |     if (type == 'C')
-      |                     ^
-      |                      {
-   45 |         return 2;
-   46 |     else    {
-      |     } 
-/home/cssuwbstudent/343-movies-sanaar/inventory.cpp:46:5: error: do not use 'else' after 'return' [llvm-else-after-return,readability-else-after-return,-warnings-as-errors]
-   46 |     else    {
-      |     ^~~~    ~
-   47 |         cout << "Movie Type is not supported: " << type; 
-      |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   48 |     
-   49 |     }
-      |     ~
-/home/cssuwbstudent/343-movies-sanaar/inventory.cpp:55:19: error: statement should be inside braces [google-readability-braces-around-statements,readability-braces-around-statements,-warnings-as-errors]
-   55 |     if (index < 0)
-      |                   ^
-      |                    {
-   56 |         return;
-      |                
-/home/cssuwbstudent/343-movies-sanaar/movie.cpp:19:8: error: definition of explicitly defaulted destructor [clang-diagnostic-error]
-   19 | Movie::~Movie() {}
-      |        ^
-/home/cssuwbstudent/343-movies-sanaar/movie.h:17:9: error: parameter 'name' is const-qualified in the function declaration; const-qualification of parameters only has an effect in function definitions [readability-avoid-const-params-in-decls,-warnings-as-errors]
-   17 |   Movie(const string name, const string director, int year);
-      |         ^~~~~
-/home/cssuwbstudent/343-movies-sanaar/movie.h:17:28: error: parameter 'director' is const-qualified in the function declaration; const-qualification of parameters only has an effect in function definitions [readability-avoid-const-params-in-decls,-warnings-as-errors]
-   17 |   Movie(const string name, const string director, int year);
-      |                            ^~~~~
-/home/cssuwbstudent/343-movies-sanaar/movie.h:53:10: error: redundant string initialization [readability-redundant-string-init,-warnings-as-errors]
-   53 |   string hashKey = "";
-      |          ^~~~~~~~~~~~
-      |          hashKey
-/home/cssuwbstudent/343-movies-sanaar/read.cpp:9:9: error: implicit conversion 'Movie *' -> 'bool' [readability-implicit-bool-conversion,-warnings-as-errors]
-    9 |     if (movie) {
-      |         ^    
-      |               != nullptr
-/home/cssuwbstudent/343-movies-sanaar/read.cpp:17:14: error: method 'readCustomers' can be made static [readability-convert-member-functions-to-static,-warnings-as-errors]
-   17 | void Reader::readCustomers(string name) {
-      |              ^
-/home/cssuwbstudent/343-movies-sanaar/read.cpp:18:10: error: unused local variable 'line' of type 'string' (aka 'basic_string<char>') [bugprone-unused-local-non-trivial-variable,-warnings-as-errors]
-   18 |   string line;
-      |          ^
-/home/cssuwbstudent/343-movies-sanaar/read.cpp:41:16: error: method 'createMovie' can be made static [readability-convert-member-functions-to-static,-warnings-as-errors]
-   41 | Movie *Reader::createMovie(string line) {
-      |                ^
-/home/cssuwbstudent/343-movies-sanaar/read.cpp:42:7: error: the 'empty' method should be used to check for emptiness instead of 'length' [readability-container-size-empty,-warnings-as-errors]
-   42 |   if (line.length() <= 0) {
-      |       ^~~~~~~~~~~~~~~~~~
-      |       line.empty()
-/opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/basic_string.h:1220:7: note: method 'basic_string<char>'::empty() defined here
- 1220 |       empty() const _GLIBCXX_NOEXCEPT
-      |       ^
-/home/cssuwbstudent/343-movies-sanaar/read.cpp:64:7: error: implicit conversion 'Movie *' -> 'bool' [readability-implicit-bool-conversion,-warnings-as-errors]
-   64 |   if (movie) {
-      |       ^    
-      |             != nullptr
-/home/cssuwbstudent/343-movies-sanaar/read.cpp:70:19: error: method 'createCustomer' can be made static [readability-convert-member-functions-to-static,-warnings-as-errors]
-   70 | Customer *Reader::createCustomer(string line) {
-      |                   ^
-/home/cssuwbstudent/343-movies-sanaar/read.cpp:71:7: error: the 'empty' method should be used to check for emptiness instead of 'length' [readability-container-size-empty,-warnings-as-errors]
-   71 |   if (line.length() <= 0)
-      |       ^~~~~~~~~~~~~~~~~~
-      |       line.empty()
-/opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/basic_string.h:1220:7: note: method 'basic_string<char>'::empty() defined here
- 1220 |       empty() const _GLIBCXX_NOEXCEPT
-      |       ^
-/home/cssuwbstudent/343-movies-sanaar/read.cpp:71:26: error: statement should be inside braces [google-readability-braces-around-statements,readability-braces-around-statements,-warnings-as-errors]
-   71 |   if (line.length() <= 0)
-      |                          ^
-      |                           {
-   72 |     return nullptr;
-      |                    
-/home/cssuwbstudent/343-movies-sanaar/read.cpp:84:10: error: unused local variable 'name' of type 'string' (aka 'basic_string<char>') [bugprone-unused-local-non-trivial-variable,-warnings-as-errors]
-   84 |   string name = first + " " + last;
-      |          ^
-/home/cssuwbstudent/343-movies-sanaar/read.cpp:89:14: error: method 'processTransaction' can be made static [readability-convert-member-functions-to-static,-warnings-as-errors]
-   89 | void Reader::processTransaction(string line) {
-      |              ^
-/home/cssuwbstudent/343-movies-sanaar/read.cpp:90:7: error: the 'empty' method should be used to check for emptiness instead of 'length' [readability-container-size-empty,-warnings-as-errors]
-   90 |   if (line.length() <= 0)
-      |       ^~~~~~~~~~~~~~~~~~
-      |       line.empty()
-/opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13/../../../../include/c++/13/bits/basic_string.h:1220:7: note: method 'basic_string<char>'::empty() defined here
- 1220 |       empty() const _GLIBCXX_NOEXCEPT
-      |       ^
-/home/cssuwbstudent/343-movies-sanaar/read.cpp:90:26: error: statement should be inside braces [google-readability-braces-around-statements,readability-braces-around-statements,-warnings-as-errors]
-   90 |   if (line.length() <= 0)
-      |                          ^
-      |                           {
-   91 |     return;
-      |            
-/home/cssuwbstudent/343-movies-sanaar/read.cpp:124:14: error: method 'parseString' can be made static [readability-convert-member-functions-to-static,-warnings-as-errors]
-  124 | void Reader::parseString(string &str, const string &chars) {
-      |              ^
+/home/cssuwbstudent/343-movies-sanaar/inventory.cpp:5:17: error: method 'execute' can be made static [readability-convert-member-functions-to-static,-warnings-as-errors]
+    5 | void Inventory::execute(Store* store) {
+      |                 ^
       | static 
-/home/cssuwbstudent/343-movies-sanaar/return.h:4:10: error: 'command.h' file not found [clang-diagnostic-error]
-    4 | #include "command.h"
-      |          ^~~~~~~~~~~
-/home/cssuwbstudent/343-movies-sanaar/store_test.cpp:14:10: error: 'command.h' file not found [clang-diagnostic-error]
-   14 | #include "command.h"
-      |          ^~~~~~~~~~~
-Suppressed 164496 warnings (164496 in non-user code).
+/home/cssuwbstudent/343-movies-sanaar/inventory.cpp:5:25: error: unknown type name 'Store' [clang-diagnostic-error]
+    5 | void Inventory::execute(Store* store) {
+      |                         ^
+/home/cssuwbstudent/343-movies-sanaar/inventory.cpp:5:32: error: pointer parameter 'store' can be pointer to const [readability-non-const-parameter,-warnings-as-errors]
+    5 | void Inventory::execute(Store* store) {
+      |                                ^
+      |                         const 
+/home/cssuwbstudent/343-movies-sanaar/inventory.h:9:18: error: unknown type name 'Store' [clang-diagnostic-error]
+    9 |     void execute(Store* store) override;
+      |                  ^
+/home/cssuwbstudent/343-movies-sanaar/read.cpp:35:3: error: this loop is infinite; none of its condition variables (cf, line) are updated in the loop body [bugprone-infinite-loop,-warnings-as-errors]
+   35 |   while (getline(cf, line)) {
+      |   ^
+/home/cssuwbstudent/343-movies-sanaar/read.cpp:126:3: error: this loop is infinite; none of its condition variables (cmdf, line) are updated in the loop body [bugprone-infinite-loop,-warnings-as-errors]
+  126 |   while (getline(cmdf, line)) {
+      |   ^
+/home/cssuwbstudent/343-movies-sanaar/read.h:4:10: error: 'store.h' file not found [clang-diagnostic-error]
+    4 | #include "store.h"
+      |          ^~~~~~~~~
+/home/cssuwbstudent/343-movies-sanaar/return.cpp:3:32: error: unknown type name 'Movie' [clang-diagnostic-error]
+    3 | Return::Return(int customerId, Movie *movie)
+      |                                ^
+/home/cssuwbstudent/343-movies-sanaar/return.cpp:6:22: error: unknown type name 'Store' [clang-diagnostic-error]
+    6 | void Return::execute(Store *store) {
+      |                      ^
+/home/cssuwbstudent/343-movies-sanaar/return.cpp:8:3: error: unknown type name 'Customer' [clang-diagnostic-error]
+    8 |   Customer *customer = store->getCustomer(customerId);
+      |   ^
+/home/cssuwbstudent/343-movies-sanaar/return.cpp:10:10: error: no member named 'cerr' in namespace 'std' [clang-diagnostic-error]
+   10 |     std::cerr << "Return command failed: Customer ID " << customerId << " not found." << std::endl;
+      |     ~~~~~^
+/home/cssuwbstudent/343-movies-sanaar/return.cpp:10:95: error: no member named 'endl' in namespace 'std' [clang-diagnostic-error]
+   10 |     std::cerr << "Return command failed: Customer ID " << customerId << " not found." << std::endl;
+      |                                                                                          ~~~~~^
+/home/cssuwbstudent/343-movies-sanaar/return.cpp:15:3: error: use of undeclared identifier 'Movie'; did you mean 'movie'? [clang-diagnostic-error]
+   15 |   Movie *storeMovie = store->getMovie(movie);
+      |   ^~~~~
+      |   movie
+/home/cssuwbstudent/343-movies-sanaar/return.h:13:12: note: 'movie' declared here
+   13 |     Movie* movie;
+      |            ^
+/home/cssuwbstudent/343-movies-sanaar/return.cpp:15:10: error: use of undeclared identifier 'storeMovie' [clang-diagnostic-error]
+   15 |   Movie *storeMovie = store->getMovie(movie);
+      |          ^
+/home/cssuwbstudent/343-movies-sanaar/return.cpp:16:7: error: use of undeclared identifier 'storeMovie' [clang-diagnostic-error]
+   16 |   if (storeMovie == nullptr) {
+      |       ^
+/home/cssuwbstudent/343-movies-sanaar/return.cpp:17:10: error: no member named 'cerr' in namespace 'std' [clang-diagnostic-error]
+   17 |     std::cerr << "Return command failed: Movie not found in inventory: ";
+      |     ~~~~~^
+/home/cssuwbstudent/343-movies-sanaar/return.cpp:19:10: error: no member named 'cerr' in namespace 'std' [clang-diagnostic-error]
+   19 |     std::cerr << std::endl;
+      |     ~~~~~^
+/home/cssuwbstudent/343-movies-sanaar/return.cpp:19:23: error: no member named 'endl' in namespace 'std' [clang-diagnostic-error]
+   19 |     std::cerr << std::endl;
+      |                  ~~~~~^
+/home/cssuwbstudent/343-movies-sanaar/return.cpp:24:37: error: use of undeclared identifier 'storeMovie' [clang-diagnostic-error]
+   24 |   if (!store->returnMovie(customer, storeMovie)) {
+      |                                     ^
+/home/cssuwbstudent/343-movies-sanaar/return.cpp:25:10: error: no member named 'cerr' in namespace 'std' [clang-diagnostic-error]
+   25 |     std::cerr << "Return command failed: Customer " << customerId << " did not borrow this movie." << std::endl;
+      |     ~~~~~^
+/home/cssuwbstudent/343-movies-sanaar/return.cpp:25:108: error: no member named 'endl' in namespace 'std' [clang-diagnostic-error]
+   25 |     std::cerr << "Return command failed: Customer " << customerId << " did not borrow this movie." << std::endl;
+      |                                                                                                       ~~~~~^
+/home/cssuwbstudent/343-movies-sanaar/return.cpp:27:10: error: no member named 'cout' in namespace 'std' [clang-diagnostic-error]
+   27 |     std::cout << "Return successful: Customer " << customerId << " returned movie." << std::endl;
+      |     ~~~~~^
+/home/cssuwbstudent/343-movies-sanaar/return.cpp:27:93: error: no member named 'endl' in namespace 'std' [clang-diagnostic-error]
+   27 |     std::cout << "Return successful: Customer " << customerId << " returned movie." << std::endl;
+      |                                                                                        ~~~~~^
+/home/cssuwbstudent/343-movies-sanaar/return.h:8:28: error: unknown type name 'Movie' [clang-diagnostic-error]
+    8 |     Return(int customerId, Movie* movie);
+      |                            ^
+/home/cssuwbstudent/343-movies-sanaar/return.h:9:18: error: unknown type name 'Store' [clang-diagnostic-error]
+    9 |     void execute(Store* store) override;
+      |                  ^
+/home/cssuwbstudent/343-movies-sanaar/return.h:13:5: error: unknown type name 'Movie' [clang-diagnostic-error]
+   13 |     Movie* movie;
+      |     ^
+/home/cssuwbstudent/343-movies-sanaar/store_test.cpp:16:1: error: #includes are not sorted properly [llvm-include-order,-warnings-as-errors]
+   16 | #include "store.h"
+      | ^        ~~~~~~~~~
+      |          "read.h"
+   17 | #include "read.h"
+      |          ~~~~~~~~
+      |          "store.h"
+Suppressed 202347 warnings (202347 in non-user code).
 Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
-77 warnings treated as errors
+8 warnings treated as errors
 =====================================================
 4. If the section below is empty, clang-format does not find any formatting issues
    You can fix formatting errors using "clang-format -i <filename>" on command line
 =====================================================
 Running clang-format on ./borrow.cpp
-3,5c3
-< Borrow::Borrow() : Transaction() {
-<     actionType = 'B';
-< }
+1d0
+< #include <iostream>
+3d1
+< #include "store.h"
+5a4,5
+> #include "store.h"
+> #include <iostream>
+14,15c14,16
+<     std::cerr << "Borrow command failed: Customer ID " << customerId << " not found." << std::endl;
+<     return;  // safely exit without throwing
 ---
-> Borrow::Borrow() : Transaction() { actionType = 'B'; }
-7c5
-< Borrow::~Borrow() { }
+>     std::cerr << "Borrow command failed: Customer ID " << customerId
+>               << " not found." << std::endl;
+>     return; // safely exit without throwing
+22c23
+<     movie->printShort();  // or print title/identifier however you do
 ---
-> Borrow::~Borrow() {}
-9,11c7
-< void Borrow::display() const {
-<     cout << mediaType << " " << actionType << " ";
-< }
----
-> void Borrow::display() const { cout << mediaType << " " << actionType << " "; }
-13,23c9,18
-< bool Borrow::process(string media, Movie* movie, Customer* customer) {
-<     if (movie != NULL){
-<         mediaType = media;
-<         item = movie;
-<         if (movie->getStock() <= 0) { 
-<             cout << "Movie: " << movie->getTitle() << " is out of stock" <<
-<             endl << endl;
-<             return false; 
+>     movie->printShort(); // or print title/identifier however you do
+29,32c30,36
+<     std::cerr << "Borrow command failed: Could not borrow movie (maybe out of stock)." << std::endl;
 <         } else {
-<             movie->decreaseStock();
+<     std::cout << "Borrow successful: Customer " << customerId << " borrowed movie." << std::endl;
 <         }
 ---
-> bool Borrow::process(string media, Movie *movie, Customer *customer) {
->   if (movie != NULL) {
->     mediaType = media;
->     item = movie;
->     if (movie->getStock() <= 0) {
->       cout << "Movie: " << movie->getTitle() << " is out of stock" << endl
->            << endl;
->       return false;
->     } else {
->       movie->decreaseStock();
-25c20,21
-<     return true;  
----
+>     std::cerr
+>         << "Borrow command failed: Could not borrow movie (maybe out of stock)."
+>         << std::endl;
+>   } else {
+>     std::cout << "Borrow successful: Customer " << customerId
+>               << " borrowed movie." << std::endl;
 >   }
->   return true;
-28,30c24
-< Transaction* Borrow::create() {
-<     return new Borrow();
-< }
-\ No newline at end of file
----
-> Transaction *Borrow::create() { return new Borrow(); }
-\ No newline at end of file
 Running clang-format on ./classics.cpp
-10,77c10,78
-<     cout << left << setw(8) << setfill(' ') << "stock:" << left << setw(4)
-<          << setfill(' ') << stock;
-<     cout << left << setw(11) << setfill(' ') << "director: " << left
-<          << setw(20) << setfill(' ') << director;
-<     cout << left << setw(8) << setfill(' ') << "title: " << left
-<          << setw(35) << setfill(' ') << title;
-<     cout << left << setw(6) << setfill(' ') <<  "year:" << yearOfRelease << "  ";
-<     cout << left << setw(7) << setfill(' ') << "month:" << month << " ";
-<     cout << endl;
-< }
-< 
-< void Classics::setData(ifstream& infile) {
-<     infile.ignore();
-<     infile >> stock;
-<     
-<     infile.ignore();
-<     getline(infile >> ws, director, ',');
-<     
-<     infile.ignore();
-<     getline(infile >> ws, title, ',');
-<     
-<     infile.ignore();
-<     infile >> actorFName;
-<     infile.ignore();
-<     infile >> actorLName;
-<     infile.ignore();
-<     infile >> month;
-<     infile.ignore();
-<     infile >> yearOfRelease;
-< }
-< 
-< void Classics::setTempData(ifstream& infile) {
-<     infile >> month >> yearOfRelease >> actorFName >> actorLName;
-< }
-< 
-< bool Classics::operator<(const Movie& other) const {
-<     const Classics& classicMovie = static_cast<const Classics&>(other);
-<     if (yearOfRelease < classicMovie.yearOfRelease) {
-<         return true;
-<     } else if (yearOfRelease == classicMovie.yearOfRelease && actorFName <
-<                classicMovie.actorFName) {
-<         return true;
-<     } else if (actorFName == classicMovie.actorFName && actorLName <
-<                classicMovie.actorLName) {
-<         return true;
-<     } else {
+22,23c22,23
 <         return false;
 <     }
-< }
-< 
-< bool Classics::operator>(const Movie& other) const {
-<     const Classics& classicMovie = static_cast<const Classics&>(other);
-<     if (yearOfRelease > classicMovie.yearOfRelease) {
-<         return true;
-<     } else if (yearOfRelease == classicMovie.yearOfRelease && actorFName >
-<                classicMovie.actorFName) {
-<         return true;
-<     } else if (actorFName == classicMovie.actorFName && actorLName >
-<                classicMovie.actorLName){
-<         return true;
-<     } else {
+---
+>     return false;
+>   }
+36,37c36,37
 <         return false;
 <     }
-< }
-< 
-< bool Classics::operator==(const Movie& other) const {
-<     const Classics& classicMovie = static_cast<const Classics&>(other);
-<     return (yearOfRelease == classicMovie.yearOfRelease && month == classicMovie.month);
 ---
->   cout << left << setw(8) << setfill(' ') << "stock:" << left << setw(4)
->        << setfill(' ') << stock;
->   cout << left << setw(11) << setfill(' ') << "director: " << left << setw(20)
->        << setfill(' ') << director;
->   cout << left << setw(8) << setfill(' ') << "title: " << left << setw(35)
->        << setfill(' ') << title;
->   cout << left << setw(6) << setfill(' ') << "year:" << yearOfRelease << "  ";
->   cout << left << setw(7) << setfill(' ') << "month:" << month << " ";
->   cout << endl;
-> }
-> 
-> void Classics::setData(ifstream &infile) {
->   infile.ignore();
->   infile >> stock;
-> 
->   infile.ignore();
->   getline(infile >> ws, director, ',');
-> 
->   infile.ignore();
->   getline(infile >> ws, title, ',');
-> 
->   infile.ignore();
->   infile >> actorFName;
->   infile.ignore();
->   infile >> actorLName;
->   infile.ignore();
->   infile >> month;
->   infile.ignore();
->   infile >> yearOfRelease;
-> }
-> 
-> void Classics::setTempData(ifstream &infile) {
->   infile >> month >> yearOfRelease >> actorFName >> actorLName;
-> }
-> 
-> bool Classics::operator<(const Movie &other) const {
->   const Classics &classicMovie = static_cast<const Classics &>(other);
->   if (yearOfRelease < classicMovie.yearOfRelease) {
->     return true;
->   } else if (yearOfRelease == classicMovie.yearOfRelease &&
->              actorFName < classicMovie.actorFName) {
->     return true;
->   } else if (actorFName == classicMovie.actorFName &&
->              actorLName < classicMovie.actorLName) {
->     return true;
->   } else {
 >     return false;
 >   }
-> }
-> 
-> bool Classics::operator>(const Movie &other) const {
->   const Classics &classicMovie = static_cast<const Classics &>(other);
->   if (yearOfRelease > classicMovie.yearOfRelease) {
->     return true;
->   } else if (yearOfRelease == classicMovie.yearOfRelease &&
->              actorFName > classicMovie.actorFName) {
->     return true;
->   } else if (actorFName == classicMovie.actorFName &&
->              actorLName > classicMovie.actorLName) {
->     return true;
->   } else {
->     return false;
->   }
-> }
-> 
-> bool Classics::operator==(const Movie &other) const {
->   const Classics &classicMovie = static_cast<const Classics &>(other);
->   return (yearOfRelease == classicMovie.yearOfRelease &&
->           month == classicMovie.month);
-80,81c81,82
-< bool Classics::operator!=(const Movie& other) const {
-<   const Classics& classicMovie = static_cast<const Classics&>(other);
----
-> bool Classics::operator!=(const Movie &other) const {
->   const Classics &classicMovie = static_cast<const Classics &>(other);
-85,87c86
-< Movie* Classics::create() {
-<   return new Classics();
+60c60
 < }
-\ No newline at end of file
 ---
-> Movie *Classics::create() { return new Classics(); }
-\ No newline at end of file
+>     }
+68,69c68,69
+<          std::to_string(monthOfRelease) + " " + std::to_string(yearOfRelease) + ", " +
+<          majorActorFirstName + " " + majorActorLastName;
+---
+>          std::to_string(monthOfRelease) + " " + std::to_string(yearOfRelease) +
+>          ", " + majorActorFirstName + " " + majorActorLastName;
 Running clang-format on ./comedy.cpp
-6c6
-< Comedy::~Comedy() { }
+4,5c4,6
+< Comedy::Comedy(int stock, const std::string &director, const std::string &title, int yearOfRelease)
+<   : Movie(stock, director, title, yearOfRelease) {
 ---
-> Comedy::~Comedy() {}
-8,56c8,48
-< void Comedy::setData(ifstream& infile) {
-<     infile.ignore();
-<     infile >> stock;
-<     
-<     infile.ignore();
-<     getline(infile >> ws, director, ',');
-<     
-<     infile.ignore();
-<     getline(infile >> ws, title, ',');
-<     
-<     infile >> yearOfRelease;
-< }
-< 
-< void Comedy::setTempData(ifstream& infile) {
-<     infile.ignore();
-<     getline(infile >> ws, title, ',');
-<     infile >> yearOfRelease;
-< }
-< 
-< bool Comedy::operator<(const Movie& other) const {
-<     const Comedy& comedyMovie = static_cast<const Comedy&>(other);
-<     if (title < comedyMovie.title) {
-<         return true;
-<     } else if (title == comedyMovie.title && yearOfRelease < comedyMovie.yearOfRelease) {
-<         return true;
-<     } else {
+> Comedy::Comedy(int stock, const std::string &director, const std::string &title,
+>                int yearOfRelease)
+>     : Movie(stock, director, title, yearOfRelease) {
+13,14c14,15
 <         return false;
 <     }
-< }
-< 
-< bool Comedy::operator>(const Movie& other) const {
-<     const Comedy& comedyMovie = static_cast<const Comedy&>(other);
-<     if (title > comedyMovie.title) {
-<         return true;
-<     } else if (title == comedyMovie.title && yearOfRelease > comedyMovie.yearOfRelease) {
-<         return true;
-<     } else {
+---
+>     return false;
+>   }
+23,24c24,25
 <         return false;
 <     }
-< }
-< 
-< bool Comedy::operator==(const Movie& other) const {
-<     const Comedy& comedyMovie = static_cast<const Comedy&>(other);
-<     return (title == comedyMovie.title && yearOfRelease == comedyMovie.yearOfRelease);
-< }
-< 
-< bool Comedy::operator!=(const Movie& other) const {
-<     const Comedy& comedyMovie = static_cast<const Comedy&>(other);
-<     return !(*this == comedyMovie);
 ---
-> void Comedy::setData(ifstream &infile) {
->   infile.ignore();
->   infile >> stock;
-> 
->   infile.ignore();
->   getline(infile >> ws, director, ',');
-> 
->   infile.ignore();
->   getline(infile >> ws, title, ',');
-> 
->   infile >> yearOfRelease;
-> }
-> 
-> void Comedy::setTempData(ifstream &infile) {
->   infile.ignore();
->   getline(infile >> ws, title, ',');
->   infile >> yearOfRelease;
-> }
-> 
-> bool Comedy::operator<(const Movie &other) const {
->   const Comedy &comedyMovie = static_cast<const Comedy &>(other);
->   if (title < comedyMovie.title) {
->     return true;
->   } else if (title == comedyMovie.title &&
->              yearOfRelease < comedyMovie.yearOfRelease) {
->     return true;
->   } else {
 >     return false;
 >   }
-> }
-> 
-> bool Comedy::operator>(const Movie &other) const {
->   const Comedy &comedyMovie = static_cast<const Comedy &>(other);
->   if (title > comedyMovie.title) {
->     return true;
->   } else if (title == comedyMovie.title &&
->              yearOfRelease > comedyMovie.yearOfRelease) {
->     return true;
->   } else {
->     return false;
->   }
-59,60c51,54
-< Movie* Comedy::create() {
-<     return new Comedy();
+42c43
+< }
 ---
-> bool Comedy::operator==(const Movie &other) const {
->   const Comedy &comedyMovie = static_cast<const Comedy &>(other);
->   return (title == comedyMovie.title &&
->           yearOfRelease == comedyMovie.yearOfRelease);
-61a56,62
-> 
-> bool Comedy::operator!=(const Movie &other) const {
->   const Comedy &comedyMovie = static_cast<const Comedy &>(other);
->   return !(*this == comedyMovie);
-> }
-> 
-> Movie *Comedy::create() { return new Comedy(); }
+>   }
+Running clang-format on ./command.cpp
+Running clang-format on ./commandfactory.cpp
+98c98
+<     } 
+---
+>     }
+100d99
+<     
 Running clang-format on ./customer.cpp
-5,7c5,7
-<     id = 0000;
-<     lastName = "";
-<     firstName = "";
+6,8c6,8
+< Customer::Customer(int id, const std::string& name) {
+<     this->id = id;
+<     this->name = name;
 ---
->   id = 0000;
->   lastName = "";
->   firstName = "";
-10,15c10,15
-< Customer::Customer(ifstream& infile) {
-<     infile >> id;
-<     if (infile.eof()) {
-<         return;
+> Customer::Customer(int id, const std::string &name) {
+>   this->id = id;
+>   this->name = name;
+12,14c12
+< int Customer::getId() const {
+<     return id;
 <     }
-<     infile >> lastName >> firstName;
 ---
-> Customer::Customer(ifstream &infile) {
->   infile >> id;
->   if (infile.eof()) {
+> int Customer::getId() const { return id; }
+16,18c14
+< std::string Customer::getName() const {
+<     return name;
+< }
+---
+> std::string Customer::getName() const { return name; }
+21,22c17,18
+< void Customer::addHistory(const std::string& entry) {
+<     history.push_back(entry);
+---
+> void Customer::addHistory(const std::string &entry) {
+>   history.push_back(entry);
+27,30c23,26
+<     if (history.empty()) {
+<         cout << "No transactions found.\n";
+<         return;
+< }
+---
+>   if (history.empty()) {
+>     cout << "No transactions found.\n";
 >     return;
 >   }
->   infile >> lastName >> firstName;
-19,23c19,23
-<     for(int i=0; i < history.size(); i++) {
-<         Transaction* temp = history[i];
-<         delete temp;
-<         temp = nullptr;
-<     }
+32,34c28,30
+<     for (const string& record : history) {
+<         cout << record << endl;
+< }
 ---
->   for (int i = 0; i < history.size(); i++) {
->     Transaction *temp = history[i];
->     delete temp;
->     temp = nullptr;
+>   for (const string &record : history) {
+>     cout << record << endl;
 >   }
-26,27c26,27
-< void Customer::addHistory(Transaction* transaction) {
-<     history.push_back(transaction);
----
-> void Customer::addHistory(Transaction *transaction) {
->   history.push_back(transaction);
-31,44c31,43
-<     if (history.size() == 0) {
-<         cout << "No Transaction history for Customer: " << id << endl << endl;
-<     } else {
-<         cout << "Transaction History for Customer: " << id << " " << lastName
-<         << ", " << firstName << endl;
-<     
-<         for (int i = (int)history.size() - 1; i >= 0 ; i--) { // loop through STL stack
-<             Transaction* temp = history[i];  // use top Transaction
-<             cout << "Action Type: " << temp->getActionType() <<
-<             "   Movie Title: ";  // print action type
-<             cout << temp->getMovie()->getTitle(); // print title
-<             cout << endl;
-<         }
-<         cout << endl;
----
->   if (history.size() == 0) {
->     cout << "No Transaction history for Customer: " << id << endl << endl;
->   } else {
->     cout << "Transaction History for Customer: " << id << " " << lastName
->          << ", " << firstName << endl;
-> 
->     for (int i = (int)history.size() - 1; i >= 0;
->          i--) {                       // loop through STL stack
->       Transaction *temp = history[i]; // use top Transaction
->       cout << "Action Type: " << temp->getActionType()
->            << "   Movie Title: ";           // print action type
->       cout << temp->getMovie()->getTitle(); // print title
->       cout << endl;
-45a45,46
->     cout << endl;
->   }
-49c50
-<     cout << firstName << " " << lastName << " " << id << endl;
----
->   cout << firstName << " " << lastName << " " << id << endl;
-58,59c59,60
-< bool Customer::operator==(const Customer& other) const {
-<     return id == other.id;
----
-> bool Customer::operator==(const Customer &other) const {
->   return id == other.id;
-62,63c63,64
-< bool Customer::operator!=(const Customer& other) const {
-<     return id != other.id;
----
-> bool Customer::operator!=(const Customer &other) const {
->   return id != other.id;
 Running clang-format on ./drama.cpp
-3c3
-< Drama::Drama() : Movie() { }
----
-> Drama::Drama() : Movie() {}
-5c5
-< Drama::~Drama() { }
----
-> Drama::~Drama() {}
-7,61c7,59
-< void Drama::setData(ifstream& infile) {
-<     infile.ignore();
-<     infile >> stock;
-<     
-<     infile.ignore();
-<     getline(infile >> ws, director, ',');
-<     
-<     infile.ignore();
-<     getline(infile >> ws, title, ',');
-<     
-<     infile >> year;
-< }
-< 
-< void Drama::setTempData(ifstream& infile) {
-<     infile.ignore();
-<     getline(infile >> ws, director, ',');
-<     infile.ignore();
-<     getline(infile >> ws, title, ',');
-< }
-< 
-< bool Drama::operator<(const Movie& other) const {
-<     const Drama& dramaMovie = static_cast<const Drama&>(other);
-<     if (director < dramaMovie.director) {
-<         return true;
-<     } else if (director == dramaMovie.director && title < dramaMovie.title) {
-<         return true;
-<     } else {
+27,28c27,28
 <         return false;
 <     }
-< }
-< 
-< bool Drama::operator>(const Movie& other) const {
-<     const Drama& dramaMovie = static_cast<const Drama&>(other);
-<     if (director > dramaMovie.director) {
-<         return true;
-<     } else if (director == dramaMovie.director && title > dramaMovie.title) {
-<         return true;
-<     } else {
+---
+>     return false;
+>   }
+41,42c41,42
 <         return false;
 <     }
-< }
-< 
-< bool Drama::operator==(const Movie& other) const {
-<     const Drama& dramaMovie = static_cast<const Drama&>(other);
-<     return (director == dramaMovie.director && title == dramaMovie.title);
-< }
-< 
-< bool Drama::operator!=(const Movie& other) const {
-<     const Drama& dramaMovie = static_cast<const Drama&>(other);
-<     return !(*this == dramaMovie);
-< }
-< 
-< Movie* Drama::create() {
-<     return new Drama();
-< }
-\ No newline at end of file
 ---
-> void Drama::setData(ifstream &infile) {
->   infile.ignore();
->   infile >> stock;
-> 
->   infile.ignore();
->   getline(infile >> ws, director, ',');
-> 
->   infile.ignore();
->   getline(infile >> ws, title, ',');
-> 
->   infile >> year;
-> }
-> 
-> void Drama::setTempData(ifstream &infile) {
->   infile.ignore();
->   getline(infile >> ws, director, ',');
->   infile.ignore();
->   getline(infile >> ws, title, ',');
-> }
-> 
-> bool Drama::operator<(const Movie &other) const {
->   const Drama &dramaMovie = static_cast<const Drama &>(other);
->   if (director < dramaMovie.director) {
->     return true;
->   } else if (director == dramaMovie.director && title < dramaMovie.title) {
->     return true;
->   } else {
 >     return false;
 >   }
-> }
-> 
-> bool Drama::operator>(const Movie &other) const {
->   const Drama &dramaMovie = static_cast<const Drama &>(other);
->   if (director > dramaMovie.director) {
->     return true;
->   } else if (director == dramaMovie.director && title > dramaMovie.title) {
->     return true;
->   } else {
->     return false;
+46c46
+< }
+---
 >   }
-> }
-> 
-> bool Drama::operator==(const Movie &other) const {
->   const Drama &dramaMovie = static_cast<const Drama &>(other);
->   return (director == dramaMovie.director && title == dramaMovie.title);
-> }
-> 
-> bool Drama::operator!=(const Movie &other) const {
->   const Drama &dramaMovie = static_cast<const Drama &>(other);
->   return !(*this == dramaMovie);
-> }
-> 
-> Movie *Drama::create() { return new Drama(); }
-\ No newline at end of file
+52c52,53
+<   return "D, " + std::to_string(stock) + ", " + director + ", " + title + ", " + std::to_string(yearOfRelease);
+---
+>   return "D, " + std::to_string(stock) + ", " + director + ", " + title + ", " +
+>          std::to_string(yearOfRelease);
+54d54
+< 
 Running clang-format on ./history.cpp
+3,4c3
+< History::History(int customerId)
+<     : customerId(customerId) {}
+---
+> History::History(int customerId) : customerId(customerId) {}
+6c5
+< void History::execute(Store* store) {
+---
+> void History::execute(Store *store) {
 Running clang-format on ./inventory.cpp
-5,11c5,10
-< Inventory::Inventory()  {
-<     typeMovies = 3;
-<     for (unsigned int i = 0; i < MAX; i++)  {
-<         sort[i] = 0;
-<         for (unsigned int j = 0; i < sort[i]; j++)  {
-<             sortedMovies[i][j] = nullptr;
-<         }
+5,7c5
+< void Inventory::execute(Store* store) {
+<     store->displayInventory();
+< } 
 ---
-> Inventory::Inventory() {
->   typeMovies = 3;
->   for (unsigned int i = 0; i < MAX; i++) {
->     sort[i] = 0;
->     for (unsigned int j = 0; i < sort[i]; j++) {
->       sortedMovies[i][j] = nullptr;
-12a12
->   }
-16,21c16,78
-<     for (unsigned int i = 0; i < MAX; i++)  {
-<         for (unsigned int j = 0; j < sort[i]; j++)  {
-<             if (sortedMovies[i][j]) {
-<                 delete sortedMovies[i][j];
-<             }
-<         }
----
->   for (unsigned int i = 0; i < MAX; i++) {
->     for (unsigned int j = 0; j < sort[i]; j++) {
->       if (sortedMovies[i][j]) {
->         delete sortedMovies[i][j];
->       }
->     }
->   }
-> }
-> 
-> void Inventory::add(Movie *movie) {
->   if (movie) {
->     movies.insert(movie->hash(), movie);
->     insert(movie);
->   }
-> }
-> 
-> Movie *Inventory::find(string key) {
->   Movie *movie = nullptr;
->   movies.retrieve(key, movie);
->   return movie;
-> }
-> 
-> int Inventory::idx(Movie *movie) {
->   char type = movie->type;
->   if (type == 'F')
->     return 0;
->   if (type == 'D')
->     return 1;
->   if (type == 'C')
->     return 2;
->   else {
->     cout << "Movie Type is not supported: " << type;
->   }
->   return -1;
-> }
-> 
-> void Inventory::insert(Movie *movie) {
->   int index = idx(movie);
->   if (index < 0)
->     return;
->   int temp = 0;
->   while ((temp < sort[index]) && *sortedMovies[index][temp] < *movie) {
->     temp++;
->   }
-> 
->   if (temp < sort[index]) {
->     for (int i = sort[index]; i > temp; i--) {
->       sortedMovies[index][i] = sortedMovies[index][i - 1];
->     }
->   }
->   sort[index]++;
->   sortedMovies[index][temp] = movie;
-> }
-> 
-> ostream &operator<<(ostream &out, const Inventory &inventory) {
->   inventory.print(out);
->   return out;
-> }
-> 
-> ostream &Inventory::print(ostream &out) const {
->   for (unsigned int i = 0; i < typeMovies; i++) {
->     for (unsigned int j = 0; j < sort[i]; j++) {
->       out << *sortedMovies[i][j] << endl;
-23,82c80,81
-< }
-< 
-< void Inventory::add(Movie* movie)   {
-<     if (movie)  {
-<         movies.insert(movie->hash(), movie);
-<         insert(movie);
-<     }
-< }
-< 
-< Movie* Inventory::find(string key)  {
-<     Movie* movie = nullptr;
-<     movies.retrieve(key, movie);
-<     return movie;
-< }
-< 
-< int Inventory::idx(Movie* movie)    {
-<     char type = movie->type;
-<     if (type == 'F')
-<         return 0;
-<     if (type == 'D')
-<         return 1;
-<     if (type == 'C')
-<         return 2;
-<     else    {
-<         cout << "Movie Type is not supported: " << type; 
-<     
-<     }
-<     return -1;
-< }
-< 
-< void Inventory::insert(Movie* movie)    {
-<     int index = idx(movie);
-<     if (index < 0)
-<         return;
-<     int temp = 0;
-<     while ((temp < sort[index]) && *sortedMovies[index][temp] < *movie)   {
-<         temp++;
-<     }
-< 
-<     if (temp < sort[index]) {
-<         for (int i = sort[index]; i > temp; i--)    {
-<             sortedMovies[index][i] = sortedMovies[index][i - 1];
-<         }
-<     }
-<     sort[index]++;
-<     sortedMovies[index][temp] = movie;
-< }
-< 
-< ostream& operator<<(ostream& out, const Inventory& inventory)   {
-<     inventory.print(out);
-<     return out;
-< }
-< 
-< ostream& Inventory::print(ostream& out) const {
-<     for (unsigned int i = 0; i < typeMovies; i++)   {
-<         for (unsigned int j = 0; j < sort[i]; j++)  {
-<             out << *sortedMovies[i][j] << endl;
-<         } 
-<     }
-<     return out;
----
->   }
->   return out;
+> void Inventory::execute(Store *store) { store->displayInventory(); }
 Running clang-format on ./main.cpp
 Running clang-format on ./movie.cpp
 Running clang-format on ./read.cpp
+27c27
+<     }
+---
+>   }
+31c31
+< }
+---
+>   }
+38c38
+<   }
+---
+>     }
+58c58
+<   stringstream ss(line);
+---
+>     stringstream ss(line);
+112c112,113
+<         Movie *m = new Classics(stock, director, title, year, month, actorFirst, actorLast);
+---
+>         Movie *m = new Classics(stock, director, title, year, month, actorFirst,
+>                                 actorLast);
+115c116,117
+<         cerr << "Unknown movie type: " << genre << ", discarding line: " << line << endl;
+---
+>         cerr << "Unknown movie type: " << genre << ", discarding line: " << line
+>              << endl;
+120a123
+>     }
+122d124
+< }
 Running clang-format on ./return.cpp
+10c10,11
+<     std::cerr << "Return command failed: Customer ID " << customerId << " not found." << std::endl;
+---
+>     std::cerr << "Return command failed: Customer ID " << customerId
+>               << " not found." << std::endl;
+25c26,27
+<     std::cerr << "Return command failed: Customer " << customerId << " did not borrow this movie." << std::endl;
+---
+>     std::cerr << "Return command failed: Customer " << customerId
+>               << " did not borrow this movie." << std::endl;
+27c29,30
+<     std::cout << "Return successful: Customer " << customerId << " returned movie." << std::endl;
+---
+>     std::cout << "Return successful: Customer " << customerId
+>               << " returned movie." << std::endl;
 Running clang-format on ./store_test.cpp
+16d15
+< #include "store.h"
+17a17
+> #include "store.h"
+53,54c53,54
+<   loadStoreData(store, "data4customers.txt", "data4movies.txt", "data4commands.txt");
+< 
+---
+>   loadStoreData(store, "data4customers.txt", "data4movies.txt",
+>                 "data4commands.txt");
 =====================================================
 5. If there are any memory leaks, it should be in the output below
 =====================================================
-In file included from borrow.cpp:1:
-borrow.h:6:10: fatal error: transaction.h: No such file or directory
-    6 | #include "transaction.h"
-      |          ^~~~~~~~~~~~~~~
+borrow.cpp:3:10: fatal error: store.h: No such file or directory
+    3 | #include "store.h"
+      |          ^~~~~~~~~
 compilation terminated.
-classics.cpp: In member function ‘virtual void Classics::display() const’:
-classics.cpp:10:21: error: ‘setw’ was not declared in this scope; did you mean ‘getw’?
-   10 |     cout << left << setw(8) << setfill(' ') << "stock:" << left << setw(4)
-      |                     ^~~~
-      |                     getw
-classics.cpp:10:32: error: ‘setfill’ was not declared in this scope
-   10 |     cout << left << setw(8) << setfill(' ') << "stock:" << left << setw(4)
-      |                                ^~~~~~~
-In file included from customer.cpp:1:
-customer.h:8:10: fatal error: transaction.h: No such file or directory
-    8 | #include "transaction.h"
-      |          ^~~~~~~~~~~~~~~
+comedy.cpp: In constructor ‘Comedy::Comedy(int, const string&, const string&, int)’:
+comedy.cpp:5:48: error: no matching function for call to ‘Movie::Movie(int&, const string&, const string&, int&)’
+    5 |   : Movie(stock, director, title, yearOfRelease) {
+      |                                                ^
+In file included from comedy.h:4,
+                 from comedy.cpp:1:
+movie.h:13:3: note: candidate: ‘Movie::Movie(const Movie&)’
+   13 |   Movie(const Movie &other);
+      |   ^~~~~
+movie.h:13:3: note:   candidate expects 1 argument, 4 provided
+movie.h:10:3: note: candidate: ‘Movie::Movie()’
+   10 |   Movie();
+      |   ^~~~~
+movie.h:10:3: note:   candidate expects 0 arguments, 4 provided
+In file included from commandfactory.cpp:1:
+commandfactory.h:5:10: fatal error: store.h: No such file or directory
+    5 | #include "store.h"
+      |          ^~~~~~~~~
 compilation terminated.
-drama.cpp: In member function ‘virtual void Drama::setData(std::ifstream&)’:
-drama.cpp:17:15: error: ‘year’ was not declared in this scope
-   17 |     infile >> year;
-      |               ^~~~
 In file included from history.cpp:1:
-history.h:4:10: fatal error: command.h: No such file or directory
-    4 | #include "command.h"
-      |          ^~~~~~~~~~~
-compilation terminated.
-In file included from inventory.h:4,
-                 from inventory.cpp:1:
-hashtable.h:5:10: fatal error: node.h: No such file or directory
-    5 | #include "node.h"
-      |          ^~~~~~~~
-compilation terminated.
-movie.cpp:19:1: error: definition of explicitly-defaulted ‘Movie::~Movie()’
-   19 | Movie::~Movie() {}
-      | ^~~~~
-In file included from movie.cpp:1:
-movie.h:18:11: note: ‘virtual Movie::~Movie()’ explicitly defaulted here
-   18 |   virtual ~Movie() = default;
-      |           ^
-In file included from read.h:6,
-                 from read.cpp:1:
-customer.h:8:10: fatal error: transaction.h: No such file or directory
-    8 | #include "transaction.h"
-      |          ^~~~~~~~~~~~~~~
+history.h:9:16: error: ‘Store’ has not been declared
+    9 |   void execute(Store *store) override;
+      |                ^~~~~
+history.h:9:8: error: ‘void History::execute(int*)’ marked ‘override’, but does not override
+    9 |   void execute(Store *store) override;
+      |        ^~~~~~~
+history.cpp:6:6: error: variable or field ‘execute’ declared void
+    6 | void History::execute(Store* store) {
+      |      ^~~~~~~
+history.cpp:6:23: error: ‘Store’ was not declared in this scope
+    6 | void History::execute(Store* store) {
+      |                       ^~~~~
+history.cpp:6:30: error: ‘store’ was not declared in this scope
+    6 | void History::execute(Store* store) {
+      |                              ^~~~~
+In file included from inventory.cpp:1:
+inventory.h:9:18: error: ‘Store’ has not been declared
+    9 |     void execute(Store* store) override;
+      |                  ^~~~~
+inventory.h:9:10: error: ‘void Inventory::execute(int*)’ marked ‘override’, but does not override
+    9 |     void execute(Store* store) override;
+      |          ^~~~~~~
+inventory.cpp:5:6: error: variable or field ‘execute’ declared void
+    5 | void Inventory::execute(Store* store) {
+      |      ^~~~~~~~~
+inventory.cpp:5:25: error: ‘Store’ was not declared in this scope
+    5 | void Inventory::execute(Store* store) {
+      |                         ^~~~~
+inventory.cpp:5:32: error: ‘store’ was not declared in this scope
+    5 | void Inventory::execute(Store* store) {
+      |                                ^~~~~
+In file included from read.cpp:1:
+read.h:4:10: fatal error: store.h: No such file or directory
+    4 | #include "store.h"
+      |          ^~~~~~~~~
 compilation terminated.
 In file included from return.cpp:1:
-return.h:4:10: fatal error: command.h: No such file or directory
-    4 | #include "command.h"
-      |          ^~~~~~~~~~~
-compilation terminated.
-store_test.cpp:14:10: fatal error: command.h: No such file or directory
-   14 | #include "command.h"
-      |          ^~~~~~~~~~~
+return.h:8:28: error: ‘Movie’ has not been declared
+    8 |     Return(int customerId, Movie* movie);
+      |                            ^~~~~
+return.h:9:18: error: ‘Store’ has not been declared
+    9 |     void execute(Store* store) override;
+      |                  ^~~~~
+return.h:13:5: error: ‘Movie’ does not name a type
+   13 |     Movie* movie;
+      |     ^~~~~
+return.h:9:10: error: ‘void Return::execute(int*)’ marked ‘override’, but does not override
+    9 |     void execute(Store* store) override;
+      |          ^~~~~~~
+return.cpp:3:32: error: ‘Movie’ has not been declared
+    3 | Return::Return(int customerId, Movie *movie)
+      |                                ^~~~~
+return.cpp: In constructor ‘Return::Return(int, int*)’:
+return.cpp:4:31: error: class ‘Return’ does not have any field named ‘movie’
+    4 |     : customerId(customerId), movie(movie) {}
+      |                               ^~~~~
+return.cpp: At global scope:
+return.cpp:6:6: error: variable or field ‘execute’ declared void
+    6 | void Return::execute(Store *store) {
+      |      ^~~~~~
+return.cpp:6:22: error: ‘Store’ was not declared in this scope
+    6 | void Return::execute(Store *store) {
+      |                      ^~~~~
+return.cpp:6:29: error: ‘store’ was not declared in this scope
+    6 | void Return::execute(Store *store) {
+      |                             ^~~~~
+In file included from store_test.cpp:15:
+commandfactory.h:5:10: fatal error: store.h: No such file or directory
+    5 | #include "store.h"
+      |          ^~~~~~~~~
 compilation terminated.
 =====================================================
 6. Using valgrind to check for memory leaks
    Check for "definitely lost" in the output below
 =====================================================
-In file included from borrow.cpp:1:
-borrow.h:6:10: fatal error: transaction.h: No such file or directory
-    6 | #include "transaction.h"
-      |          ^~~~~~~~~~~~~~~
+borrow.cpp:3:10: fatal error: store.h: No such file or directory
+    3 | #include "store.h"
+      |          ^~~~~~~~~
 compilation terminated.
-classics.cpp: In member function ‘virtual void Classics::display() const’:
-classics.cpp:10:21: error: ‘setw’ was not declared in this scope; did you mean ‘getw’?
-   10 |     cout << left << setw(8) << setfill(' ') << "stock:" << left << setw(4)
-      |                     ^~~~
-      |                     getw
-classics.cpp:10:32: error: ‘setfill’ was not declared in this scope
-   10 |     cout << left << setw(8) << setfill(' ') << "stock:" << left << setw(4)
-      |                                ^~~~~~~
-In file included from customer.cpp:1:
-customer.h:8:10: fatal error: transaction.h: No such file or directory
-    8 | #include "transaction.h"
-      |          ^~~~~~~~~~~~~~~
+comedy.cpp: In constructor ‘Comedy::Comedy(int, const string&, const string&, int)’:
+comedy.cpp:5:48: error: no matching function for call to ‘Movie::Movie(int&, const string&, const string&, int&)’
+    5 |   : Movie(stock, director, title, yearOfRelease) {
+      |                                                ^
+In file included from comedy.h:4,
+                 from comedy.cpp:1:
+movie.h:13:3: note: candidate: ‘Movie::Movie(const Movie&)’
+   13 |   Movie(const Movie &other);
+      |   ^~~~~
+movie.h:13:3: note:   candidate expects 1 argument, 4 provided
+movie.h:10:3: note: candidate: ‘Movie::Movie()’
+   10 |   Movie();
+      |   ^~~~~
+movie.h:10:3: note:   candidate expects 0 arguments, 4 provided
+In file included from commandfactory.cpp:1:
+commandfactory.h:5:10: fatal error: store.h: No such file or directory
+    5 | #include "store.h"
+      |          ^~~~~~~~~
 compilation terminated.
-drama.cpp: In member function ‘virtual void Drama::setData(std::ifstream&)’:
-drama.cpp:17:15: error: ‘year’ was not declared in this scope
-   17 |     infile >> year;
-      |               ^~~~
 In file included from history.cpp:1:
-history.h:4:10: fatal error: command.h: No such file or directory
-    4 | #include "command.h"
-      |          ^~~~~~~~~~~
-compilation terminated.
-In file included from inventory.h:4,
-                 from inventory.cpp:1:
-hashtable.h:5:10: fatal error: node.h: No such file or directory
-    5 | #include "node.h"
-      |          ^~~~~~~~
-compilation terminated.
-movie.cpp:19:1: error: definition of explicitly-defaulted ‘Movie::~Movie()’
-   19 | Movie::~Movie() {}
-      | ^~~~~
-In file included from movie.cpp:1:
-movie.h:18:11: note: ‘virtual Movie::~Movie()’ explicitly defaulted here
-   18 |   virtual ~Movie() = default;
-      |           ^
-In file included from read.h:6,
-                 from read.cpp:1:
-customer.h:8:10: fatal error: transaction.h: No such file or directory
-    8 | #include "transaction.h"
-      |          ^~~~~~~~~~~~~~~
+history.h:9:16: error: ‘Store’ has not been declared
+    9 |   void execute(Store *store) override;
+      |                ^~~~~
+history.h:9:8: error: ‘void History::execute(int*)’ marked ‘override’, but does not override
+    9 |   void execute(Store *store) override;
+      |        ^~~~~~~
+history.cpp:6:6: error: variable or field ‘execute’ declared void
+    6 | void History::execute(Store* store) {
+      |      ^~~~~~~
+history.cpp:6:23: error: ‘Store’ was not declared in this scope
+    6 | void History::execute(Store* store) {
+      |                       ^~~~~
+history.cpp:6:30: error: ‘store’ was not declared in this scope
+    6 | void History::execute(Store* store) {
+      |                              ^~~~~
+In file included from inventory.cpp:1:
+inventory.h:9:18: error: ‘Store’ has not been declared
+    9 |     void execute(Store* store) override;
+      |                  ^~~~~
+inventory.h:9:10: error: ‘void Inventory::execute(int*)’ marked ‘override’, but does not override
+    9 |     void execute(Store* store) override;
+      |          ^~~~~~~
+inventory.cpp:5:6: error: variable or field ‘execute’ declared void
+    5 | void Inventory::execute(Store* store) {
+      |      ^~~~~~~~~
+inventory.cpp:5:25: error: ‘Store’ was not declared in this scope
+    5 | void Inventory::execute(Store* store) {
+      |                         ^~~~~
+inventory.cpp:5:32: error: ‘store’ was not declared in this scope
+    5 | void Inventory::execute(Store* store) {
+      |                                ^~~~~
+In file included from read.cpp:1:
+read.h:4:10: fatal error: store.h: No such file or directory
+    4 | #include "store.h"
+      |          ^~~~~~~~~
 compilation terminated.
 In file included from return.cpp:1:
-return.h:4:10: fatal error: command.h: No such file or directory
-    4 | #include "command.h"
-      |          ^~~~~~~~~~~
-compilation terminated.
-store_test.cpp:14:10: fatal error: command.h: No such file or directory
-   14 | #include "command.h"
-      |          ^~~~~~~~~~~
+return.h:8:28: error: ‘Movie’ has not been declared
+    8 |     Return(int customerId, Movie* movie);
+      |                            ^~~~~
+return.h:9:18: error: ‘Store’ has not been declared
+    9 |     void execute(Store* store) override;
+      |                  ^~~~~
+return.h:13:5: error: ‘Movie’ does not name a type
+   13 |     Movie* movie;
+      |     ^~~~~
+return.h:9:10: error: ‘void Return::execute(int*)’ marked ‘override’, but does not override
+    9 |     void execute(Store* store) override;
+      |          ^~~~~~~
+return.cpp:3:32: error: ‘Movie’ has not been declared
+    3 | Return::Return(int customerId, Movie *movie)
+      |                                ^~~~~
+return.cpp: In constructor ‘Return::Return(int, int*)’:
+return.cpp:4:31: error: class ‘Return’ does not have any field named ‘movie’
+    4 |     : customerId(customerId), movie(movie) {}
+      |                               ^~~~~
+return.cpp: At global scope:
+return.cpp:6:6: error: variable or field ‘execute’ declared void
+    6 | void Return::execute(Store *store) {
+      |      ^~~~~~
+return.cpp:6:22: error: ‘Store’ was not declared in this scope
+    6 | void Return::execute(Store *store) {
+      |                      ^~~~~
+return.cpp:6:29: error: ‘store’ was not declared in this scope
+    6 | void Return::execute(Store *store) {
+      |                             ^~~~~
+In file included from store_test.cpp:15:
+commandfactory.h:5:10: fatal error: store.h: No such file or directory
+    5 | #include "store.h"
+      |          ^~~~~~~~~
 compilation terminated.
 cat: valgrind-output.txt: No such file or directory
-Tue Jun 10 04:29:38 UTC 2025
+Tue Jun 10 05:05:59 UTC 2025
 =====================================================
 To create an output.txt file with all the output from this script
 Run the below command
