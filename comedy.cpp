@@ -1,50 +1,33 @@
 #include "comedy.h"
 
-// Constructor
-Comedy::Comedy(int stock, const std::string &director, const std::string &title, int yearOfRelease)
-  : Movie(stock, director, title, yearOfRelease) {
-  movieType = 'F';
+Comedy::Comedy(int stock, std::string director, std::string title, int year)
+    : Movie(stock, director, title, year) {}
+
+char Comedy::getMovieType() const {
+    return 'F';
 }
 
-// Equality operator
+char Comedy::getType() const {
+    return 'F';
+}
+
+std::string Comedy::getKey() const {
+    return getTitle() + std::to_string(getYearOfRelease());
+}
+
+std::string Comedy::getMovieInfo() const {
+    return getTitle() + ", " + getDirector() + ", " + std::to_string(getYearOfRelease());
+}
+
 bool Comedy::operator==(const Movie &other) const {
-  const Comedy *temp = dynamic_cast<const Comedy *>(&other);
-  if (temp == nullptr) {
-        return false;
-    }
-
-  return (title == temp->title && yearOfRelease == temp->yearOfRelease);
+    const Comedy* rhs = dynamic_cast<const Comedy*>(&other);
+    return rhs && getTitle() == rhs->getTitle() && getYearOfRelease() == rhs->getYearOfRelease();
 }
 
-// Less-than operator
 bool Comedy::operator<(const Movie &other) const {
-  const Comedy *temp = dynamic_cast<const Comedy *>(&other);
-  if (temp == nullptr) {
-        return false;
-    }
-
-  if (title == temp->title) {
-    return yearOfRelease < temp->yearOfRelease;
-  }
-
-  return title < temp->title;
-}
-
-// Greater-than operator
-bool Comedy::operator>(const Movie &other) const {
-  const Comedy *temp = dynamic_cast<const Comedy *>(&other);
-  if (temp == nullptr) {
-    return false;
-  }
-
-  if (title == temp->title) {
-    return yearOfRelease > temp->yearOfRelease;
-}
-
-  return title > temp->title;
-}
-
-std::string Comedy::getInfo() const {
-  return "F, " + std::to_string(stock) + ", " + director + ", " + title + ", " +
-         std::to_string(yearOfRelease);
+    const Comedy* rhs = dynamic_cast<const Comedy*>(&other);
+    if (!rhs) return false;
+    if (getTitle() != rhs->getTitle())
+        return getTitle() < rhs->getTitle();
+    return getYearOfRelease() < rhs->getYearOfRelease();
 }

@@ -5,19 +5,24 @@
 
 class Classics : public Movie {
 public:
-  // Constructor
-  Classics(int stock, const std::string &director, const std::string &title,
-           int yearOfRelease, int monthOfRelease,
-           const std::string &majorActorFirstName,
-           const std::string &majorActorLastName);
+    Classics(int stock, std::string director, std::string title,
+             int year, int month, std::string actorFirst, std::string actorLast);
 
-  // Operator overloads
-  bool operator==(const Movie &other) const override;
-  bool operator<(const Movie &other) const override;
-  bool operator>(const Movie &other) const override;
+    std::string getMajorActor() const;
+    int getMonth() const;
 
-  std::string getInfo() const override;
+    bool operator==(const Movie &other) const override;
+    bool operator<(const Movie &other) const override;
 
+    char getMovieType() const override;
+    char getType() const override;
+    std::string getKey() const override;
+    std::string getMovieInfo() const override;
+
+private:
+    std::string majorActorFirst;
+    std::string majorActorLast;
+    int releaseMonth;
 };
 
-#endif // CLASSICS_H
+#endif

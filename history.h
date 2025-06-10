@@ -5,11 +5,11 @@
 
 class History : public Command {
 public:
-  explicit History(int customerId);
-  void execute(Store *store) override;
+    explicit History(int customerId);
+    void execute(Store* store) override;
 
 private:
-  int customerId;
+    int customerId;
 };
 
-#endif // HISTORY_H
+#endif

@@ -1,7 +1,6 @@
 #include "inventory.h"
-
-Inventory::Inventory() {}
+#include "store.h"
 
 void Inventory::execute(Store* store) {
     store->displayInventory();
-} 
+}

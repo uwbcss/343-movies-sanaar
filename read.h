@@ -1,11 +1,15 @@
 #ifndef READ_H
 #define READ_H
 
-#include "store.h"
 #include <string>
 
-// Parses all input files and populates the store
-void loadStoreData(Store &store, const std::string &customersFile,
-                   const std::string &moviesFile, const std::string &commandsFile);
+class Store;
+class CommandFactory;
 
-#endif // READ_H
+namespace Read {
+    void readMovies(const std::string& filename, Store* store);
+    void readCustomers(const std::string& filename, Store* store);
+    void readCommands(const std::string& filename, Store* store, CommandFactory& factory);
+}
+
+#endif

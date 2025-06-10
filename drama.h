@@ -5,17 +5,17 @@
 
 class Drama : public Movie {
 public:
-  // Constructor
-  Drama(int stock, const std::string &director, const std::string &title,
-        int yearOfRelease);
+    Drama(int stock, std::string director, std::string title, int year);
 
-  // Operator overloads
-  bool operator==(const Movie &other) const override;
-  bool operator<(const Movie &other) const override;
-  bool operator>(const Movie &other) const override;
+    bool operator==(const Movie& other) const override;
+    bool operator<(const Movie& other) const override;
 
-  std::string getInfo() const override;
-
+    char getMovieType() const override;
+    /// @brief 
+    /// @return 
+    char getType() const override;
+    std::string getKey() const override;
+    std::string getMovieInfo() const override;
 };
 
-#endif // DRAMA_H
+#endif

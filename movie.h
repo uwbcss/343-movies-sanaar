@@ -2,64 +2,31 @@
 #define MOVIE_H
 
 #include <string>
-using namespace std;
 
 class Movie {
 public:
-  // Default constructor
-  Movie();
+    Movie(int stock, std::string director, std::string title, int year);
+    virtual ~Movie() = default;
 
-  // Copy constructor
-  Movie(const Movie &other);
-  
+    int getStock() const;
+    void setStock(int stock);
+    std::string getDirector() const;
+    std::string getTitle() const;
+    int getYearOfRelease() const;
 
-  // Virtual destructor
-  virtual ~Movie();
+    virtual char getMovieType() const = 0;
+    virtual bool operator==(const Movie& other) const = 0;
+    virtual bool operator<(const Movie& other) const = 0;
 
-  // Getters and setters
-  int getStock() const;
-  void setStock(int input);
-
-  char getMovieType() const;
-  void setMovieType(char type);
-
-  string getDirector() const;
-  void setDirector(const string &input);
-
-  string getTitle() const;
-  void setTitle(const string &input);
-
-  int getYearOfRelease() const;
-  void setYearOfRelease(int input);
-
-  string getMajorActorFirstName() const;
-  void setMajorActorFirstName(const string &firstName);
-
-  string getMajorActorLastName() const;
-  void setMajorActorLastName(const string &lastName);
-
-  int getMonthOfRelease() const;
-  void setMonthOfRelease(int month);
-
-  // Overloadable comparison operators
-  virtual bool operator==(const Movie &other) const = 0;
-  virtual bool operator<(const Movie &other) const = 0;
-  virtual bool operator>(const Movie &other) const = 0;
-
-  bool decreaseStock(); // reduces stock by 1 if available
-  void increaseStock(); // increases stock by 1
-
-  virtual string getInfo() const = 0;
+    virtual std::string getKey() const = 0;
+    virtual char getType() const = 0;
+    virtual std::string getMovieInfo() const = 0;
 
 protected:
-  char movieType; // F = Comedy, D = Drama, C = Classic
-  int stock;
-  string director;
-  string title;
-  int yearOfRelease;
-  string majorActorFirstName;
-  string majorActorLastName;
-  int monthOfRelease;
+    int stock;
+    std::string director;
+    std::string title;
+    int yearOfRelease;
 };
 
-#endif // MOVIE_H
+#endif

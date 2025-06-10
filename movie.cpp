@@ -1,78 +1,24 @@
 #include "movie.h"
-using namespace std;
 
-// Default constructor
-Movie::Movie() {
-  movieType = ' ';
-  stock = 0;
-  director = "";
-  title = "";
-  yearOfRelease = 0;
-  majorActorFirstName = "";
-  majorActorLastName = "";
-  monthOfRelease = 0;
+Movie::Movie(int stock, std::string director, std::string title, int year)
+    : stock(stock), director(director), title(title), yearOfRelease(year) {}
+
+int Movie::getStock() const {
+    return stock;
 }
 
-// Copy constructor
-Movie::Movie(const Movie &other) {
-  movieType = other.movieType;
-  stock = other.stock;
-  director = other.director;
-  title = other.title;
-  yearOfRelease = other.yearOfRelease;
-  majorActorFirstName = other.majorActorFirstName;
-  majorActorLastName = other.majorActorLastName;
-  monthOfRelease = other.monthOfRelease;
+void Movie::setStock(int s) {
+    stock = s;
 }
 
-// Virtual destructor
-Movie::~Movie() {}
-
-// Getters and setters
-int Movie::getStock() const { return stock; }
-
-void Movie::setStock(int input) { stock = input; }
-
-char Movie::getMovieType() const { return movieType; }
-
-void Movie::setMovieType(char type) { movieType = type; }
-
-string Movie::getDirector() const { return director; }
-
-void Movie::setDirector(const string &input) { director = input; }
-
-string Movie::getTitle() const { return title; }
-
-void Movie::setTitle(const string &input) { title = input; }
-
-int Movie::getYearOfRelease() const { return yearOfRelease; }
-
-void Movie::setYearOfRelease(int input) { yearOfRelease = input; }
-
-string Movie::getMajorActorFirstName() const { return majorActorFirstName; }
-
-void Movie::setMajorActorFirstName(const string &name) {
-  majorActorFirstName = name;
+std::string Movie::getDirector() const {
+    return director;
 }
 
-string Movie::getMajorActorLastName() const { return majorActorLastName; }
-
-void Movie::setMajorActorLastName(const string &name) {
-  majorActorLastName = name;
+std::string Movie::getTitle() const {
+    return title;
 }
 
-int Movie::getMonthOfRelease() const { return monthOfRelease; }
-
-void Movie::setMonthOfRelease(int month) { monthOfRelease = month; }
-
-// Decrease stock by 1 if stock > 0, return true if successful
-bool Movie::decreaseStock() {
-  if (stock > 0) {
-    stock--;
-    return true;
-  }
-  return false;
+int Movie::getYearOfRelease() const {
+    return yearOfRelease;
 }
-
-// Increase stock by 1
-void Movie::increaseStock() { stock++; }

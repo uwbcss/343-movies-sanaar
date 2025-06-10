@@ -1,51 +1,27 @@
 #ifndef HASHTABLE_H
 #define HASHTABLE_H
 
-#include <algorithm>
-#include <list>
-#include <stdexcept>
-#include <utility>
-#include <vector>
+#include <unordered_map>
 
-template <typename Key, typename Value>
+template <typename K, typename V>
 class HashTable {
 public:
-    explicit HashTable(int size = 101) : table(size) {}
-
-    void insert(const Key& key, Value value) {
-        int index = hash(key);
-        for (auto& kv : table[index]) {
-            if (kv.first == key) {
-                kv.second = value;
-                return;
-    }
-        }
-        table[index].emplace_back(key, value);
+    void insert(const K& key, V value) {
+        table[key] = value;
     }
 
-    Value get(const Key& key) const {
-        int index = hash(key);
-        for (const auto& kv : table[index]) {
-            if (kv.first == key) {
-              return kv.second;
-      }
-        }
-        throw std::runtime_error("Key not found");
-  }
+    V get(const K& key) const {
+        auto it = table.find(key);
+        if (it != table.end()) return it->second;
+        return nullptr;
+    }
 
-    bool contains(const Key& key) const {
-    int index = hash(key);
-    return std::any_of(
-        table[index].begin(), table[index].end(),
-        [&key](const std::pair<Key, Value>& kv) { return kv.first == key; });
-  }
+    bool contains(const K& key) const {
+        return table.find(key) != table.end();
+    }
 
 private:
-    std::vector<std::list<std::pair<Key, Value>>> table;
-
-    int hash(const Key& key) const {
-        return std::hash<Key>{}(key) % table.size();
-    }
+    std::unordered_map<K, V> table;
 };
 
 #endif

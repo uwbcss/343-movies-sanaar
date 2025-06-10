@@ -1,54 +1,33 @@
 #include "drama.h"
 
-// Constructor
-Drama::Drama(int stock, const std::string &director, const std::string &title,
-             int yearOfRelease) {
-  movieType = 'D'; // Drama
-  this->stock = stock;
-  this->director = director;
-  this->title = title;
-  this->yearOfRelease = yearOfRelease;
+Drama::Drama(int stock, std::string director, std::string title, int year)
+    : Movie(stock, director, title, year) {}
+
+char Drama::getMovieType() const {
+    return 'D';
 }
 
-// operator==: compare by director then title
-bool Drama::operator==(const Movie &other) const {
-  const Drama *temp = dynamic_cast<const Drama *>(&other);
-  if (temp == nullptr) {
-    return false;
-  }
-
-  return (director == temp->director && title == temp->title);
+char Drama::getType() const {
+    return 'D';
 }
 
-// operator<: compare by director then title
-bool Drama::operator<(const Movie &other) const {
-  const Drama *temp = dynamic_cast<const Drama *>(&other);
-  if (temp == nullptr) {
-        return false;
-    }
-
-  if (director == temp->director) {
-    return title < temp->title;
-  }
-
-  return director < temp->director;
+std::string Drama::getKey() const {
+    return getDirector() + getTitle();
 }
 
-// operator>: compare by director then title
-bool Drama::operator>(const Movie &other) const {
-  const Drama *temp = dynamic_cast<const Drama *>(&other);
-  if (temp == nullptr) {
-        return false;
-    }
-
-  if (director == temp->director) {
-    return title > temp->title;
+std::string Drama::getMovieInfo() const {
+    return getTitle() + ", " + getDirector() + ", " + std::to_string(getYearOfRelease());
 }
 
-  return director > temp->director;
+bool Drama::operator==(const Movie& other) const {
+    const Drama* rhs = dynamic_cast<const Drama*>(&other);
+    return rhs && getDirector() == rhs->getDirector() && getTitle() == rhs->getTitle();
 }
 
-std::string Drama::getInfo() const {
-  return "D, " + std::to_string(stock) + ", " + director + ", " + title + ", " + std::to_string(yearOfRelease);
+bool Drama::operator<(const Movie& other) const {
+    const Drama* rhs = dynamic_cast<const Drama*>(&other);
+    if (!rhs) return false;
+    if (getDirector() != rhs->getDirector())
+        return getDirector() < rhs->getDirector();
+    return getTitle() < rhs->getTitle();
 }
-

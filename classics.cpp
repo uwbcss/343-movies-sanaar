@@ -1,70 +1,54 @@
 #include "classics.h"
 
-// Constructor
-Classics::Classics(int stock, const std::string &director,
-                   const std::string &title, int yearOfRelease,
-                   int monthOfRelease, const std::string &majorActorFirstName,
-                   const std::string &majorActorLastName) {
-  movieType = 'C'; // Classic
-  this->stock = stock;
-  this->director = director;
-  this->title = title;
-  this->yearOfRelease = yearOfRelease;
-  this->monthOfRelease = monthOfRelease;
-  this->majorActorFirstName = majorActorFirstName;
-  this->majorActorLastName = majorActorLastName;
+Classics::Classics(int stock, std::string director, std::string title,
+                   int year, int month, std::string actorFirst, std::string actorLast)
+    : Movie(stock, director, title, year),
+      majorActorFirst(actorFirst), majorActorLast(actorLast), releaseMonth(month) {}
+
+std::string Classics::getMajorActor() const {
+    return majorActorFirst + " " + majorActorLast;
 }
 
-// operator==
+int Classics::getMonth() const {
+    return releaseMonth;
+}
+
+char Classics::getMovieType() const {
+    return 'C';
+}
+
+char Classics::getType() const {
+    return 'C';
+}
+
+std::string Classics::getKey() const {
+    return std::to_string(getYearOfRelease()) +
+           std::to_string(getMonth()) + getMajorActor();
+}
+
+std::string Classics::getMovieInfo() const {
+    return getTitle() + ", " + getDirector() + ", " +
+           getMajorActor() + ", " + std::to_string(getMonth()) +
+           "/" + std::to_string(getYearOfRelease());
+}
+
 bool Classics::operator==(const Movie &other) const {
-  const Classics *temp = dynamic_cast<const Classics *>(&other);
-  if (temp == nullptr) {
-        return false;
-    }
-
-  bool sameDate = (yearOfRelease == temp->yearOfRelease &&
-                   monthOfRelease == temp->monthOfRelease);
-  bool sameActor = (majorActorFirstName == temp->majorActorFirstName &&
-                    majorActorLastName == temp->majorActorLastName);
-  return sameDate && sameActor;
+    const Classics* rhs = dynamic_cast<const Classics*>(&other);
+    if (!rhs) return false;
+    return getTitle() == rhs->getTitle() &&
+           getDirector() == rhs->getDirector() &&
+           getYearOfRelease() == rhs->getYearOfRelease() &&
+           releaseMonth == rhs->releaseMonth &&
+           majorActorFirst == rhs->majorActorFirst &&
+           majorActorLast == rhs->majorActorLast;
 }
 
-// operator<
 bool Classics::operator<(const Movie &other) const {
-  const Classics *temp = dynamic_cast<const Classics *>(&other);
-  if (temp == nullptr) {
-        return false;
-    }
-
-  if (yearOfRelease == temp->yearOfRelease) {
-    if (monthOfRelease == temp->monthOfRelease) {
-      return (majorActorFirstName + majorActorLastName) <
-             (temp->majorActorFirstName + temp->majorActorLastName);
-    }
-    return monthOfRelease < temp->monthOfRelease;
-  }
-  return yearOfRelease < temp->yearOfRelease;
-}
-
-// operator>
-bool Classics::operator>(const Movie &other) const {
-  const Classics *temp = dynamic_cast<const Classics *>(&other);
-  if (temp == nullptr) {
-    return false;
-  }
-
-  if (yearOfRelease == temp->yearOfRelease) {
-    if (monthOfRelease == temp->monthOfRelease) {
-      return (majorActorFirstName + majorActorLastName) >
-             (temp->majorActorFirstName + temp->majorActorLastName);
-}
-    return monthOfRelease > temp->monthOfRelease;
-  }
-  return yearOfRelease > temp->yearOfRelease;
-}
-
-std::string Classics::getInfo() const {
-  return "C, " + std::to_string(stock) + ", " + director + ", " + title + ", " +
-         std::to_string(monthOfRelease) + " " + std::to_string(yearOfRelease) + ", " +
-         majorActorFirstName + " " + majorActorLastName;
+    const Classics* rhs = dynamic_cast<const Classics*>(&other);
+    if (!rhs) return false;
+    if (getYearOfRelease() != rhs->getYearOfRelease())
+        return getYearOfRelease() < rhs->getYearOfRelease();
+    if (releaseMonth != rhs->releaseMonth)
+        return releaseMonth < rhs->releaseMonth;
+    return getMajorActor() < rhs->getMajorActor();
 }

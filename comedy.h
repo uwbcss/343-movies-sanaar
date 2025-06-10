@@ -5,16 +5,15 @@
 
 class Comedy : public Movie {
 public:
-  Comedy(int stock, const std::string &director, const std::string &title,
-         int yearOfRelease);
+    Comedy(int stock, std::string director, std::string title, int year);
 
-  // Operator overloads
-  bool operator==(const Movie &other) const override;
-  bool operator<(const Movie &other) const override;
-  bool operator>(const Movie &other) const override;
+    bool operator==(const Movie &other) const override;
+    bool operator<(const Movie &other) const override;
 
-  std::string getInfo() const override;
-
+    char getMovieType() const override;
+    char getType() const override;
+    std::string getKey() const override;
+    std::string getMovieInfo() const override;
 };
 
-#endif // COMEDY_H
+#endif
